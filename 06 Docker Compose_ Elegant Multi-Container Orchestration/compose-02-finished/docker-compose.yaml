@@ -4,6 +4,7 @@ services:
     image: 'mongo'
     volumes: 
       - data:/data/db
+    # container_name: mongodb                         // explicitly giving the name for the container since default name is profoldername_servicename_incrementedvalue
     # environment: 
     #   MONGO_INITDB_ROOT_USERNAME: max
     #   MONGO_INITDB_ROOT_PASSWORD: secret
@@ -35,7 +36,9 @@ services:
       - '3000:3000'
     volumes: 
       - ./frontend/src:/app/src
+    # for -i interative
     stdin_open: true
+    # for -t tty
     tty: true
     depends_on: 
       - backend
