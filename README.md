@@ -40,3 +40,5 @@
 17. `docker cp containerid/name:/sourcefoldername destinationfolder_local` **(copying from local conatiner to local)**
 18. `docker run --rm -p outsideport:internalexposedport --name nameofcontainer imageId/imgaeName`
 19. `docker tag previousname:tag reponame/newimagename:tag` **to rename a image for pushing in dockerhub**
+20. `docker push reponame/imagename:version_or_tag`
+21. `docker pull reponame/imagename:version_or_tag`
