@@ -103,3 +103,10 @@
    - communicating to db running in localhost.
 
 2. **Container to Container**
+
+   - `docker inspect containername_or_id` to see the IP add
+
+   - **using NETWORK**
+     - to resolve IP automatically network is created, as inside same Network ip are resolved
+     - `docker network create network-name` unlike volume network is not created automatically.
+     - `docker run --network network-name -d -rm --name conatinername imageid_or_name`
