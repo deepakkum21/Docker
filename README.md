@@ -49,7 +49,8 @@
 2. stopping of a conatiner doesn't destroys data of that particular conatiner.
 3. removal of conatiner removes data of that conatiner if volume concept is not used.
    - `docker volume ls`
-   - `docker volume create`
+   - `docker volume create vol_name`
+   - `docker volume inspect vol_name` to see the details about a vol
 
 ### Types of volumes:-
 
@@ -59,12 +60,14 @@
    - path is unknown
    - `docker run -d -p 3000:80 --rm --name containerName -v /app/node_modules imageId_or_name`
    - **it is also helpful in avoiding the files which we donot want to be overriden**.
+   - cannot be shared across containers
 
 2. `Named volume`(managed by docker):-
 
    - **it can be created at the time of running the container. It is not meant to be accessed by normal user. The data survives the container shutdown. It is not attached to a particular conatiner**
    - `docker run -d -p 3000:80 --rm --name containerName -v volumeName:pathOfFolderToBeStored imageId_or_name`
    - path is unknown
+   - can be shared across containers
 
 3. `Bind Mount`(managed by user):-
    - We define the path of the folder on our host machine.
@@ -75,3 +78,5 @@
    - `the more specific or long description folder will survive` in below -v /app/node_modules has more specific folder name than /app
    - `docker run -d -p 3000:80 --rm --name containerName -v fullPathOnLocalHost:pathOfFolderToBeStored -v /app/node_modules imageId_or_name`
    - **`docker run -d --rm --name feed -p 3000:80 -v "F:/gitrepos/Docker/03 Managing Data & Working with Volumes/data-volumes-06-adjusted-dockerfile:/app" -v /app/node_modules feedback:nodemon`**
+   - can be shared across containers
+   - **`:ro`** for read only when we dont want the conatiner should not write accidently in our local file system
