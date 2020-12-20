@@ -90,3 +90,6 @@
 
 - **Available in Dockerfile** , and in any code.
 - `can be set in dockerfile` or via `Docker run --env`
+- can be used in **setting dynamic port**
+- `docker run --env KEY=Value imageId_or_ImageName` or `docker run -e KEY=Value imageId_or_ImageName`
+- **if using a .env file to store nev key value pairs** `docker run --env-file ./.env imageId_or_ImageName`
