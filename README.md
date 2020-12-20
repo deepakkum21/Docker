@@ -42,3 +42,11 @@
 19. `docker tag previousname:tag reponame/newimagename:tag` **to rename a image for pushing in dockerhub**
 20. `docker push reponame/imagename:version_or_tag`
 21. `docker pull reponame/imagename:version_or_tag`
+
+## Volumes and persistence
+
+1. The data is stored in the thin layer which gets added on top of container i.e it is related to each conatiner.
+2. stopping of a conatiner doesn't destroys data of that particular conatiner.
+3. removal of conatiner removes data of that conatiner if volume concept is not used.
+   - `docker volume ls`
+   - `docker volume create`
