@@ -80,3 +80,13 @@
    - **`docker run -d --rm --name feed -p 3000:80 -v "F:/gitrepos/Docker/03 Managing Data & Working with Volumes/data-volumes-06-adjusted-dockerfile:/app" -v /app/node_modules feedback:nodemon`**
    - can be shared across containers
    - **`:ro`** for read only when we dont want the conatiner should not write accidently in our local file system
+
+## ARGument (build-time)
+
+- **Available in Dockerfile** , NOT accessible via CMD or any code.
+- **can be set at the time of image** build using `docker build via --build-arg`.
+
+## ENVironment (runtime)
+
+- **Available in Dockerfile** , and in any code.
+- `can be set in dockerfile` or via `Docker run --env`
