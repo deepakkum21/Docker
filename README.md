@@ -50,3 +50,28 @@
 3. removal of conatiner removes data of that conatiner if volume concept is not used.
    - `docker volume ls`
    - `docker volume create`
+
+### Types of volumes:-
+
+1. `Anonymous volume` (managed by docker):-
+
+   - **gets destroyed when container gets shutdown. It is attached to a particular conatiner**
+   - path is unknown
+   - `docker run -d -p 3000:80 --rm --name containerName -v /app/node_modules imageId_or_name`
+   - **it is also helpful in avoiding the files which we donot want to be overriden**.
+
+2. `Named volume`(managed by docker):-
+
+   - **it can be created at the time of running the container. It is not meant to be accessed by normal user. The data survives the container shutdown. It is not attached to a particular conatiner**
+   - `docker run -d -p 3000:80 --rm --name containerName -v volumeName:pathOfFolderToBeStored imageId_or_name`
+   - path is unknown
+
+3. `Bind Mount`(managed by user):-
+   - We define the path of the folder on our host machine.
+   - used for persistent and editable data.
+   - **it can be created at the time of running the container.**
+   - `docker run -d -p 3000:80 --rm --name containerName -v fullPathOnLocalHost:pathOfFolderToBeStored imageId_or_name`
+   - Avoid overriden of some files use anonymous volumes with bind mount volumes.
+   - `the more specific or long description folder will survive` in below -v /app/node_modules has more specific folder name than /app
+   - `docker run -d -p 3000:80 --rm --name containerName -v fullPathOnLocalHost:pathOfFolderToBeStored -v /app/node_modules imageId_or_name`
+   - **`docker run -d --rm --name feed -p 3000:80 -v "F:/gitrepos/Docker/03 Managing Data & Working with Volumes/data-volumes-06-adjusted-dockerfile:/app" -v /app/node_modules feedback:nodemon`**
