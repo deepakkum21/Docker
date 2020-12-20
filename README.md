@@ -84,7 +84,7 @@
 ## ARGument (build-time)
 
 - **Available in Dockerfile** , NOT accessible via CMD or any code.
-- **can be set at the time of image** build using `docker build via --build-arg`.
+- **can be set at the time of image** build using `docker build . --build-arg KEY=VALUE`.
 
 ## ENVironment (runtime)
 
