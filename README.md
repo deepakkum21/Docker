@@ -93,3 +93,13 @@
 - can be used in **setting dynamic port**
 - `docker run --env KEY=Value imageId_or_ImageName` or `docker run -e KEY=Value imageId_or_ImageName`
 - **if using a .env file to store nev key value pairs** `docker run --env-file ./.env imageId_or_ImageName`
+
+## NETWORK:-
+
+1. **Container to host machine**
+
+   - `host.docker.internal` should be **used inplace of localhost where ever communicating to host machine**.
+
+   - communicating to db running in localhost.
+
+2. **Container to Container**
