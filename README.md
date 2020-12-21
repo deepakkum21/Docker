@@ -267,3 +267,12 @@
 ## DEPLOYMENT
 
 1. `Shouldn't have bind mounts`
+
+## Steps to connect to ec2 instance using PUTTY:-
+
+1. have you .pem secret key file.
+2. download puttygen.
+3. get your .pem file to be converted into .ppk file from .pem file.
+4. add hostname eg 'ec2-user@ec2-18-219-128-222.us-east-2.compute.amazonaws.com' after @ is host name.
+5. add username in data section under connection which is before @ above.
+6. load private key file .ppk in SSH section under connection and now connect.
