@@ -134,3 +134,13 @@
    - `docker run -v mongodb_data:/data/db -d --network goals-net --name mongodb -e MONGO_INITDB_ROOT_USERNAME=deepak -e MONGO_INITDB_ROOT_PASSWORD=deepak mongo`
 3. react-frontend:-
    - `docker run -it -v "F:/gitrepos/Docker/05 Building Multi-Container Applications with Docker/multi-02-finished/frontend/src:/app/src" --rm --name goals-frontend -p 3000:3000 goals:react`
+
+## **Docker Compose**
+
+1. it is `config file` having `orchestration cmds` (start, stop, build).
+2. it `does not replace Dockerfile for custom images`.
+3. `Not suitable for managing multiple conatiners on different host`.
+4. basically it replaces writing complex cmds for a image or conatiner.
+5. the `containers run using compose file are automatically removed`.
+6. `Creates a separate Network and put all the services present in the file` into that network.
+7. **`Docker-compose up`**
