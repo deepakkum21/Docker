@@ -162,7 +162,8 @@
 11. the name given assigned to the conatiner **`foldernameOFDockerComposeFile_servicename_count`** also `serive a=name is memorized and that can be used in code for connection`
 12. `docker-compose up --build` forcing to rebuild the images otherwise if the images were present before it will use the previous image and latest changes might not get picked.
 13. `docker-compose build` will only build custom images and will not make up.
-14. example:-
+14. `docker-compose run service-name cmdWhichWantToGiveAfterENTERPOINT/REPLACE?CMD`
+15. example:-
 
             version: "3.8"
                services:
@@ -219,7 +220,7 @@
   - before that create a container with `-it` option like `docker run -it -d --name node1 node`
 - **exec is used to running commands inside the conatiner from outside**.
 
-1.  **_Creating anode-util_**
+1.  **_Creating a node-util_**
 
     - `docker build . -t node-util` with docker file
 
@@ -228,3 +229,22 @@
              WORKDIR /app
 
     - `docker run -it -v "F:/gitrepos/Docker/07 Working with _Utility Containers_ & Executing Commands In Containers/01-creating-node-utility-withoutnode-installed-on-host:/app" --name node-create1 node-util npm init`
+
+2.  **_Creating a node-util_ which can take nay cmd in cmdline**
+
+    - `docker build . -t node-util` with docker file
+
+           FROM node:14-alpine
+
+           WORKDIR /app
+
+           ENTRYPOINT [ "npm" ]
+
+    - now **no need to give npm after image_name** only cmd **like init install will work as it will get appended with ENTRYPOINT cmd**
+    - `docker run -it -v "F:/gitrepos/Docker/07 Working with _Utility Containers_ & Executing Commands In Containers/01-creating-node-utility-withoutnode-installed-on-host:/app" --name mynode node-util init` for npm init - creating a node project
+    - `docker run -it -v "F:/gitrepos/Docker/07 Working with _Utility Containers_ & Executing Commands In Containers/01-creating-node-utility-withoutnode-installed-on-host:/app" node-util install express` to install dependency like express
+
+3.  **USING DOCKER_COMPOSE**
+    - `docker-compose up`
+    - `docker-compose run npm install init`
+    - `docker-compose run npm install express nodemon`
