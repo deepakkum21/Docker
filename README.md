@@ -200,3 +200,19 @@
                volumes:
                   data:
                   logs:
+
+## making Utility containers
+
+- `docker exec -it container-name commnad-which-want-to-run` `docker exec -it node1 npm init`
+  - before that create a container with `-it` option like `docker run -it -d --name node1 node`
+- **exec is used to running commands inside the conatiner from outside**.
+
+1.  **_Creating anode-util_**
+
+    - `docker build . -t node-util` with docker file
+
+             FROM node:14-alpine
+
+             WORKDIR /app
+
+    - `docker run -it -v "F:/gitrepos/Docker/07 Working with _Utility Containers_ & Executing Commands In Containers/01-creating-node-utility-withoutnode-installed-on-host:/app" --name node-create1 node-util npm init`
