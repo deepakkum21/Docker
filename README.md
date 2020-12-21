@@ -2,8 +2,8 @@
 
 ## Diff b/w RUN & CMD
 
-** RUN:- the command is executed when the image is created
-** CMD:- the command is executed when container is being created
+**RUN**:- the command is `executed when the image is created`
+**CMD**:- the command is `executed when container is being created`
 
 ## Info about layer
 
@@ -110,3 +110,10 @@
      - to resolve IP automatically network is created, as inside same Network ip are resolved
      - `docker network create network-name` unlike volume network is not created automatically.
      - `docker run --network network-name -d -rm --name conatinername imageid_or_name`
+
+## **Things to remember while dockerizing javascript code**:-
+
+1. **Since javascript code is executed in browser we `cannot use containerName` while calling a api or any communication related to docker thing**.
+2. **Also the `ports of those conatiner has to be published` with whom javascript code is going to communicate**
+3. No need to run in the network created for docker conatiners.
+4. **`While making the conatiner -it option has to be given` for interactive terminal otherwise it wouldn't start**.
