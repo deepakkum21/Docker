@@ -117,3 +117,20 @@
 2. **Also the `ports of those conatiner has to be published` with whom javascript code is going to communicate**
 3. No need to run in the network created for docker conatiners.
 4. **`While making the conatiner -it option has to be given` for interactive terminal otherwise it wouldn't start**.
+
+## Mongo :-
+
+1. `/data/db` is the path where mongodb stores data. So this can be used with named volume or bind mount.
+2. `27017 is the port exposed` by mongo
+3. `MONGO_INITDB_ROOT_USERNAME, MONGO_INITDB_ROOT_PASSWORD are the 2 env variables` which need to be passed for setting auth based mongodb.
+4. `docker run -v mongodb_data:/data/db -d --network goals-net --name mongodb -e MONGO_INITDB_ROOT_USERNAME=deepak -e MONGO_INITDB_ROOT_PASSWORD=deepak mongo`
+
+## Communication across multiple container in full fleged app
+
+1. backend:-
+   - `docker run -d --rm --name goals-backend -v "F:/gitrepos/Docker/05 Building Multi-Container Applications with Docker/multi-02-finished/backend:/app" -v logs:/app/logs -v /app/node_modules -p 80:80 --network goals-net goals:node`
+   - **can also use --env for passing MONGODB_USERNAME=<value> --env MONGODB_PASSWORD=<value>**
+2. DB:-
+   - `docker run -v mongodb_data:/data/db -d --network goals-net --name mongodb -e MONGO_INITDB_ROOT_USERNAME=deepak -e MONGO_INITDB_ROOT_PASSWORD=deepak mongo`
+3. react-frontend:-
+   - `docker run -it -v "F:/gitrepos/Docker/05 Building Multi-Container Applications with Docker/multi-02-finished/frontend/src:/app/src" --rm --name goals-frontend -p 3000:3000 goals:react`
