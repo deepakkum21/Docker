@@ -1,48 +1,48 @@
 version: "3.8"
 services:
   mongodb:
-    image: 'mongo'
-    volumes: 
+    image: "mongo"
+    volumes:
       - data:/data/db
     # container_name: mongodb                         // explicitly giving the name for the container since default name is profoldername_servicename_incrementedvalue
-    # environment: 
+    # environment:
     #   MONGO_INITDB_ROOT_USERNAME: max
     #   MONGO_INITDB_ROOT_PASSWORD: secret
-      # - MONGO_INITDB_ROOT_USERNAME=max
-    env_file: 
+    # - MONGO_INITDB_ROOT_USERNAME=max
+    env_file:
       - ./env/mongo.env
     # networks:
     #   - goals-net         // can have but compose will create a fresh new network automatically for all the container/services so no need to mention networks
   backend:
     build: ./backend
     # build:
-    #   context: ./backend
+    #   context: ./backend   // this sets the context for the image i.e just like setting base dir
     #   dockerfile: Dockerfile
     #   args:
     #     some-arg: 1
     ports:
-      - '80:80'
-    volumes: 
+      - "80:80"
+    volumes:
       - logs:/app/logs
       - ./backend:/app
       - /app/node_modules
-    env_file: 
+    env_file:
       - ./env/backend.env
     depends_on:
       - mongodb
   frontend:
     build: ./frontend
-    ports: 
-      - '3000:3000'
-    volumes: 
+    ports:
+      - "3000:3000"
+    volumes:
       - ./frontend/src:/app/src
     # for -i interative
     stdin_open: true
     # for -t tty
     tty: true
-    depends_on: 
+    depends_on:
       - backend
 
-volumes: 
+volumes:
   data:
   logs:

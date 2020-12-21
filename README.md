@@ -137,10 +137,66 @@
 
 ## **Docker Compose**
 
-1. it is `config file` having `orchestration cmds` (start, stop, build).
-2. it `does not replace Dockerfile for custom images`.
-3. `Not suitable for managing multiple conatiners on different host`.
-4. basically it replaces writing complex cmds for a image or conatiner.
-5. the `containers run using compose file are automatically removed`.
-6. `Creates a separate Network and put all the services present in the file` into that network.
-7. **`Docker-compose up`**
+1.  it is `config file` having `orchestration cmds` (start, stop, build).
+2.  it `does not replace Dockerfile for custom images`.
+3.  `Not suitable for managing multiple conatiners on different host`.
+4.  basically it replaces writing complex cmds for a image or conatiner.
+5.  the `containers run using compose file are automatically removed`.
+6.  `Creates a separate Network and put all the services present in the file` into that network.
+7.  **`Docker-compose up`**
+8.  **`Docker-compose up -d`** to run in detach mode by default it runs it attach mode
+9.  **`Docker-compose down`** makes all conatiners stops but donot delete volumes
+10. **`Docker-compose down -v`** to delete volumes also
+11. the name given assigned to the conatiner **`foldernameOFDockerComposeFile_servicename_count`** also `serive a=name is memorized and that can be used in code for connection`
+12. `docker-compose up --build` forcing to rebuild the images otherwise if the images were present before it will use the previous image and latest changes might not get picked.
+13. `docker-compose build` will only build custom images and will not make up.
+14. example:-
+
+            version: "3.8"
+               services:
+               mongodb:
+                  image: "mongo"
+                  volumes:
+                     - data:/data/db
+                  # container_name: mongodb                         // explicitly giving the name for the container since default name is profoldername_servicename_incrementedvalue
+                  # environment:
+                  #   MONGO_INITDB_ROOT_USERNAME: max
+                  #   MONGO_INITDB_ROOT_PASSWORD: secret
+                  # - MONGO_INITDB_ROOT_USERNAME=max
+                  env_file:
+                     - ./env/mongo.env
+                  # networks:
+                  #   - goals-net         // can have but compose will create a fresh new network automatically for all the container/services so no need to mention networks
+               backend:
+                  build: ./backend
+                  # build:
+                  #   context: ./backend   // this sets the context for the image i.e just like setting base dir
+                  #   dockerfile: Dockerfile
+                  #   args:
+                  #     some-arg: 1
+                  ports:
+                     - "80:80"
+                  volumes:
+                     - logs:/app/logs
+                     - ./backend:/app
+                     - /app/node_modules
+                  env_file:
+                     - ./env/backend.env
+                  depends_on:
+                     - mongodb
+               frontend:
+                  build: ./frontend
+                  ports:
+                     - "3000:3000"
+                  volumes:
+                     - ./frontend/src:/app/src
+                  # for -i interative
+                  stdin_open: true
+                  # for -t tty
+                  tty: true
+                  depends_on:
+                     - backend
+
+               volumes:
+                  data:
+                  logs:
