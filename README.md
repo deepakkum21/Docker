@@ -96,6 +96,7 @@
    - **`docker run -d --rm --name feed -p 3000:80 -v "F:/gitrepos/Docker/03 Managing Data & Working with Volumes/data-volumes-06-adjusted-dockerfile:/app" -v /app/node_modules feedback:nodemon`**
    - can be shared across containers
    - **`:ro`** for read only when we dont want the conatiner should not write accidently in our local file system
+   - **`:delegated`** used for **not immediately writing back to host machine instead to do in batches to improve performance**.
 
 ## ARGument (build-time)
 
@@ -164,7 +165,7 @@
 9.  **`Docker-compose down`** makes all conatiners stops but donot delete volumes
 10. **`Docker-compose down -v`** to delete volumes also
 11. the name given assigned to the conatiner **`foldernameOFDockerComposeFile_servicename_count`** also `serive a=name is memorized and that can be used in code for connection`
-12. `docker-compose up --build` forcing to rebuild the images otherwise if the images were present before it will use the previous image and latest changes might not get picked.
+12. `docker-compose up --build` **forcing to rebuild the images if something has changed otherwise if the images were present** before it will use the previous image and latest changes might not get picked.
 13. `docker-compose build` will only build custom images and will not make up.
 14. `docker-compose run service-name cmdWhichWantToGiveAfterENTERPOINT/REPLACE?CMD`
 15. example:-
@@ -187,7 +188,7 @@
                backend:
                   build: ./backend
                   # build:
-                  #   context: ./backend   // this sets the context for the image i.e just like setting base dir
+                  #   context: ./backend   // this sets the context for the image i.e just like setting base dir if COPY or RUN cmd is  // present in dockerfile
                   #   dockerfile: Dockerfile
                   #   args:
                   #     some-arg: 1
@@ -217,6 +218,16 @@
                volumes:
                   data:
                   logs:
+
+## Things Docker compose can do what dockerfiles can do
+
+- it `has entrypoint` just like dockerfiles
+- it `has work_dir` just like dockerfiles
+
+## Things Docker compose `cannot do` what dockerfiles can do
+
+- it `doesnot have RUN`
+- it `doesnot have COPY`
 
 ## making Utility containers
 
