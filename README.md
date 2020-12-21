@@ -276,3 +276,12 @@
 4. add hostname eg 'ec2-user@ec2-18-219-128-222.us-east-2.compute.amazonaws.com' after @ is host name.
 5. add username in data section under connection which is before @ above.
 6. load private key file .ppk in SSH section under connection and now connect.
+
+## Steps to install docker in ec2 Instance
+
+1. `sudo yum update -y`
+2. `sudo amazon-linux-extras install docker`
+3. `sudo service docker start` if no complaint about docker it means docker is installed
+4. `docker run -d --rm -p externalport:inetrnalport dockerhubusername/reponame:tag`
+5. now set inbound rules in security group as no traffic is allowed in
+6. Add a new rule
