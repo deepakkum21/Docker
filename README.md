@@ -7,7 +7,11 @@
 
 - the command is `executed when container is being created`
 - if some cmd in mention in cmdline then this will override the cmd mentioned in CMD
-  **ENTRYPOINT**:- the command is `appended to the cmd mentioned in ENTRYPOINT`
+- if `no CMD cmd is present in the dockerfile then the base image CMD cmd will execute`
+
+**ENTRYPOINT**:-
+
+- the command is `appended to the cmd mentioned in ENTRYPOINT`
 
 ## Diff b/w ENTRYPOINT & CMD
 
