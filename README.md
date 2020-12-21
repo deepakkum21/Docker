@@ -263,3 +263,7 @@
     - `docker-compose up`
     - `docker-compose run --rm npm install init` since it doesnot delete once utility conatiner finishes its job
     - `docker-compose run --rm npm install express nodemon`
+
+## DEPLOYMENT
+
+1. `Shouldn't have bind mounts`
