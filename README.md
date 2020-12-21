@@ -246,5 +246,5 @@
 
 3.  **USING DOCKER_COMPOSE**
     - `docker-compose up`
-    - `docker-compose run npm install init`
-    - `docker-compose run npm install express nodemon`
+    - `docker-compose run --rm npm install init` since it doesnot delete once utility conatiner finishes its job
+    - `docker-compose run --rm npm install express nodemon`
