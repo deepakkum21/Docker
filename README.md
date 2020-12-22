@@ -299,3 +299,12 @@
    - `task definition` :- defining in which was the ECS should launch eg `FARGATE` serverless style launches when it is required
    - `service`:- laod balancer
    - `cluster` :- creating a virtual network, helpfull in muti conatiner to make them available in one network.
+2. **Multicontainer communication in ECS**:-
+   - in normal or in local setup we use conatinername for communicating with one conatiner to other like
+     - connecting to mongo:- `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@conatinerName:27017/course-goals?authSource=admin`,
+   - but in ECS :-
+     - connecting to mongo:- `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@localhost:27017/course-goals?authSource=admin`,
+   - best way:-
+     - `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_URL}:27017/course-goals?authSource=admin`,
+     - in this way we can can define ENV variable in Dockerfile with deafult value of conatinerName
+     - when deploying to ECS we can give env value that time of conatiner config as localhost
