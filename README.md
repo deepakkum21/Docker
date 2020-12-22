@@ -291,3 +291,11 @@
 - keep essentials software updated.
 - manage network and security groups/firewalls.
 - SSH into the machine.
+
+## Using ECS (elastic conatiner service);-
+
+1. it has four steps:-
+   - `container definition` :- config like port, conatiner name, network, repo name, mounts, vol etc
+   - `task definition` :- defining in which was the ECS should launch eg `FARGATE` serverless style launches when it is required
+   - `service`:- laod balancer
+   - `cluster` :- creating a virtual network, helpfull in muti conatiner to make them available in one network.
