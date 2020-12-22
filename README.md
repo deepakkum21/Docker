@@ -285,3 +285,9 @@
 4. `docker run -d --rm -p externalport:inetrnalport dockerhubusername/reponame:tag`
 5. now set inbound rules in security group as no traffic is allowed in
 6. Add a new rule
+
+## Disadvantages of DIY Approach:-
+
+- keep essentials software updated.
+- manage network and security groups/firewalls.
+- SSH into the machine.
