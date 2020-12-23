@@ -321,3 +321,9 @@
 - `cd %USERPROFILE%`
 - `mkdir .kube`
 - cd into the .kube and create a file `config` without a extension.
+
+## install minikube
+
+- `choco install minikube`
+- https://minikube.sigs.k8s.io/docs/start/
+- `minikube start --driver=hyperv` if using hyperV
