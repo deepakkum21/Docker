@@ -326,4 +326,6 @@
 
 - `choco install minikube`
 - https://minikube.sigs.k8s.io/docs/start/
-- `minikube start --driver=hyperv` if using hyperV
+- `minikube start --driver=hyperv` if using hyperV or can use docker, or virtualbox
+- `minikube status` to check the status
+- `minikube dashboard` for a web based bashboard
