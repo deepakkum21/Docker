@@ -294,7 +294,7 @@
 
 ## Using ECS (elastic conatiner service);-
 
-1. it has four steps:-
+1. **it has four steps**:-
    - `container definition` :- config like port, conatiner name, network, repo name, mounts, vol etc
    - `task definition` :- defining in which was the ECS should launch eg `FARGATE` serverless style launches when it is required
    - `service`:- laod balancer
@@ -308,3 +308,7 @@
      - `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_URL}:27017/course-goals?authSource=admin`,
      - in this way we can can define ENV variable in Dockerfile with deafult value of conatinerName
      - when deploying to ECS we can give env value that time of conatiner config as localhost
+
+## Building a multi stage :-
+
+- `docker build --target stageName -f pathOFDockerfile ./context`
