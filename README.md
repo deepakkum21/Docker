@@ -312,3 +312,12 @@
 ## Building a multi stage :-
 
 - `docker build --target stageName -f pathOFDockerfile ./context`
+
+## Install `kubectl` (communicating with cluster)
+
+- **install Chocolatey**
+  - `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))` run in admin mode
+- `choco install kubernetes-cli`
+- `cd %USERPROFILE%`
+- `mkdir .kube`
+- cd into the .kube and create a file `config` without a extension.
