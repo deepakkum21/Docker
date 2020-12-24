@@ -368,4 +368,6 @@
 
 - first `rebuild ur image with proper tag` tag is imp as without tag the pod is not going to update.
 - `kubectl set image deployment/nameOfDeployment containerName(usually imageName)=repoName/imageName:tag`
-- `kubectl rollout status deployment/first-app` to confirm rollout has been successfully or not
+- `kubectl rollout status deployment/first-app` inspect progress of rollout
+- `kubectl rollout undo deployment/first-app` roll back to the previous deployment
+- `kubectl rollout history deployment/first-app` to know the history of all rollout
