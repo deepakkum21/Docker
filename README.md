@@ -430,3 +430,13 @@
 - `minikube service serviceName` to run the service in browser
 - `kubectl delete -f=deployment.yaml,file2` or`kubectl delete -f=deployment.yaml -f=service.yaml` to delete or can also use Imperative cmd.
 - `kubectl delete -f deployment.yaml -f service.yaml`
+- `kubectl delete typesOfKind -l labelKey=labelvalue` deleting using label
+
+  - eg `kubectl delete deployments,services -l group=example` deployments,services having labels group=example will be deleted
+
+           apiVersion: apps/v1
+           kind: Deployment
+           metadata:
+              name: second-app-deployment
+              labels:
+                 group: example
