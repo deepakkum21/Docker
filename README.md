@@ -406,6 +406,13 @@
                      containers:
                      - name: second-node
                         image: deepakkum21/kub-first-app:v2
+                        imagePullPolicy: Always
+                        livenessProbe:
+                           httpGet:
+                           path: /
+                           port: 8080
+                           periodSeconds: 10
+                           initialDelaySeconds: 5
                      # - name: ...
                      #   image: ...
 
