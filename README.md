@@ -332,9 +332,9 @@
 
 ## The kubectl tool supports three kinds of object management:
 
-- **Imperative commands**
+- **Imperative commands** `individual cmds are executed to trigger the kubernetes` actions just like docker run
 - **Imperative object configuration**
-- **Declarative object configuration**
+- **Declarative object configuration** in this we run `kubectl apply -f config.yaml` cmd pointing the config.yaml file just like docker-compose
 
 ## Kubectl cmd
 
