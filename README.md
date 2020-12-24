@@ -367,4 +367,5 @@
 ### Updating the deployed pod image-
 
 - first `rebuild ur image with proper tag` tag is imp as without tag the pod is not going to update.
-- `kubectl set image deployement/nameOfDeployment containerName(usually imageName)=repoName/imageName:tag`
+- `kubectl set image deployment/nameOfDeployment containerName(usually imageName)=repoName/imageName:tag`
+- `kubectl rollout status deployment/first-app` to confirm rollout has been successfully or not
