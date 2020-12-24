@@ -380,6 +380,7 @@
 
 - `kubectl apply -f configFile.yaml`
 
+         ## deployment
             apiVersion: apps/v1
             kind: Deployment
             metadata:
@@ -407,3 +408,24 @@
                         image: deepakkum21/kub-first-app:v2
                      # - name: ...
                      #   image: ...
+
+
+         ## Service
+            apiVersion: v1
+            kind: Service
+            metadata:
+               name: backend
+            spec:
+               selector:
+                  app: second-app
+               ports:
+               - protocol: 'TCP'
+                 port: 80
+                 targetPort: 8080
+                  # - protocol: 'TCP'
+                  #   port: 443
+                  #   targetPort: 443
+               type: LoadBalancer
+
+- `minikube service serviceName` to run the service in browser
+- `kubectl delete -f=deployment.yaml,file2` or`kubectl delete -f=deployment.yaml -f=service.yaml` to delete or can also use Imperative cmd.
