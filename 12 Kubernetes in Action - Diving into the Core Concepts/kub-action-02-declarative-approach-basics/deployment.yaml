@@ -6,6 +6,9 @@ metadata:
 # spec for deployment
 spec:
   replicas: 1
+
+  # selector helps kubernetes to identifies the pods which will be manged by this deployment
+  # eg in this all container with labels app having name second-app and label with label teir with name backend will managed by this deployment and not other then this
   selector:
     matchLabels:
       app: second-app

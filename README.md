@@ -375,3 +375,35 @@
 - `kubectl rollout undo deployment/nameOfDeployment --to-revision=1` to go back to a particular revision
 - `kubectl delete service nameOfDeployment` to delete the deployed pod service
 - `kubectl delete deployment nameOfDeployment` to delete the deployment
+
+## Declarative approach
+
+- `kubectl apply -f configFile.yaml`
+
+            apiVersion: apps/v1
+            kind: Deployment
+            metadata:
+               name: second-app-deployment
+
+            # spec for deployment
+            spec:
+               replicas: 1
+
+            # selector helps kubernetes to identifies the pods which will be manged by this deployment
+            # eg in this all container with labels app having name second-app and label with label teir with name backend will managed # by this deployment and not other then this
+               selector:
+                  matchLabels:
+                     app: second-app
+                     tier: backend
+               template:
+                  metadata:
+                     labels:
+                        app: second-app
+                        tier: backend
+                  # spec for container
+                  spec:
+                     containers:
+                     - name: second-node
+                        image: deepakkum21/kub-first-app:v2
+                     # - name: ...
+                     #   image: ...
