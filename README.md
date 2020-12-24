@@ -361,3 +361,10 @@
 
 - `kubectl get services`
 - `minikube service nameOfDeployment` to see in browser
+
+- `kubectl scale deployments/deploymentName --replicas=noOfReplica` replica is a instance of pod/container
+
+### Updating the deployed pod image-
+
+- first `rebuild ur image with proper tag` tag is imp as without tag the pod is not going to update.
+- `kubectl set image deployement/nameOfDeployment containerName(usually imageName)=repoName/imageName:tag`
