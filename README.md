@@ -429,3 +429,4 @@
 
 - `minikube service serviceName` to run the service in browser
 - `kubectl delete -f=deployment.yaml,file2` or`kubectl delete -f=deployment.yaml -f=service.yaml` to delete or can also use Imperative cmd.
+- `kubectl delete -f deployment.yaml -f service.yaml`
