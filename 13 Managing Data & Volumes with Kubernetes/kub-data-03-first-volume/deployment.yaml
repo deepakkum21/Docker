@@ -21,3 +21,4 @@ spec:
       volumes:
         - name: story-volume
           emptyDir: {}
+## this type of volume survives container restarts using emptyDir type voulme
