@@ -490,3 +490,13 @@
                      hostPath:
                         path: /data
                         type: DirectoryOrCreate
+
+## **CSI container storage interface** volume type
+
+- its a flexible volume type created by kubernetes team on which other cloud provider can build vol type like amazon has aws efs csi driver.
+
+## Persistent Volume:-
+
+- Thses volumes are independent of node or host .
+- All volumes are available expect emptyDir.
+- `host` type pv are `only available for one node like minikube` where we have all in one node
