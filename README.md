@@ -499,4 +499,19 @@
 
 - Thses volumes are independent of node or host .
 - All volumes are available expect emptyDir.
-- `host` type pv are `only available for one node like minikube` where we have all in one node
+- `host` type Persistent Volume are `only available for one node like minikube` where we have all in one node
+
+         apiVersion: v1
+         kind: PersistentVolume
+         metadata:
+            name: host-pv
+         spec:
+            capacity:
+               storage: 1Gi
+            volumeMode: Filesystem
+            storageClassName: standard
+            accessModes:
+               - ReadWriteOnce
+            hostPath:
+               path: /data
+               type: DirectoryOrCreate
