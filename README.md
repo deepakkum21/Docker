@@ -458,9 +458,33 @@
 - solution of this is using `hostPath volume type`.
 - just like `named vol in docker`
 
+               spec:
+                  containers:
+                  - name: story
+                     image: deepakkum21/kub-data-demo:v2
+                     volumeMounts:
+                        - mountPath: /app/story
+                        name: story-volume
+                  volumes:
+                  - name: story-volume
+                     emptyDir: {}
+
 ## **hostPath volume type**
 
 - it creates volume inside the host machine that can be shared with multiple pods.
 - this doesnot create pod scpecific vol like emptyDir.
 - doesnot solve problem when we have multiple host machine. since in cluster level every pod run on different host or node.
 - just like bind mount in docker
+
+               spec:
+                  containers:
+                  - name: story
+                     image: academind/kub-data-demo:1
+                     volumeMounts:
+                        - mountPath: /app/story
+                        name: story-volume
+                  volumes:
+                  - name: story-volume
+                     hostPath:
+                        path: /data
+                        type: DirectoryOrCreate
