@@ -456,9 +456,11 @@
 
 - since emptyDir volume is created inside the pod and incase of `replicas` the volume emptyDir will be created for each pod replica and incase of one pod getting shutdown due to anyerror till the time it gets up the datawill be lost.
 - solution of this is using `hostPath volume type`.
+- just like `named vol in docker`
 
 ## **hostPath volume type**
 
 - it creates volume inside the host machine that can be shared with multiple pods.
 - this doesnot create pod scpecific vol like emptyDir.
 - doesnot solve problem when we have multiple host machine. since in cluster level every pod run on different host or node.
+- just like bind mount in docker
