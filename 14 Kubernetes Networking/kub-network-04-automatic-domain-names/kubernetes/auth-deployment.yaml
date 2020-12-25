@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: auth
-          image: deepakkum21/kub-demo-users:v2
+          image: deepakkum21/kub-demo-auth:v2
