@@ -447,3 +447,11 @@
               name: second-app-deployment
               labels:
                  group: example
+
+## Kubernetes Volumes
+
+- `https://kubernetes.io/docs/concepts/storage/volumes/`
+
+## Limitations of emptyDir volume type:-
+
+- since emptyDir volume is created inside the pod and incase of `replicas` the volume emptyDir will be created for each pod replica and incase of one pod getting shutdown due to anyerror till the time it gets up the datawill be lost.
