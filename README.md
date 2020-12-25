@@ -533,3 +533,11 @@
             resources:
                requests:
                   storage: 1Gi
+
+## Types of kubernetes resources:-
+
+- `deployment`
+- `service`
+- `pv` (persistent volume)
+- `pvc` (persistent volume claim)
+- `configMap`
