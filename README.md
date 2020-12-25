@@ -512,6 +512,8 @@
             storageClassName: standard
             accessModes:
                - ReadWriteOnce
+               # ReadWriteMany  :- multiple nodes from multiple host can read and write not availble for host-pv
+               # ReadOnlyMany   :- multiple nodes from multiple host can read not availble for host-pv
             hostPath:
                path: /data
                type: DirectoryOrCreate
