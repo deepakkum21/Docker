@@ -350,6 +350,7 @@
     - `ClusterIP (default)`
       - Exposes the Service on an internal IP in the cluster.
       - This type makes the Service only reachable from within the cluster.
+      - this also has a loadbalancer but for internal communication not from the outside world.
     - `NodePort`
       - Exposes the Service on the same port of each selected Node in the cluster using NAT.
       - Makes a Service accessible from outside the cluster using <NodeIP>:<NodePort>. Superset of ClusterIP.
