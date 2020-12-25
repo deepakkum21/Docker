@@ -479,7 +479,7 @@
                spec:
                   containers:
                   - name: story
-                     image: academind/kub-data-demo:1
+                     image: deepakkum21/kub-data-demo:1
                      volumeMounts:
                         - mountPath: /app/story
                         name: story-volume
