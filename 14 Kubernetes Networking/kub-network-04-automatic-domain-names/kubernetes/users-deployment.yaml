@@ -19,3 +19,4 @@ spec:
             - name: AUTH_ADDRESS
               # value: "10.99.104.252"        custerIP service type IP address
               value: "auth-service.default"
+              # serviceName.namespaceName   which is used for internal DNS
