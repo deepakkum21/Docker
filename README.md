@@ -517,3 +517,19 @@
             hostPath:
                path: /data
                type: DirectoryOrCreate
+
+
+
+         apiVersion: v1
+         kind: PersistentVolumeClaim
+         metadata:
+            name: host-pvc
+         spec:
+            volumeName: host-pv
+            accessModes:
+               - ReadWriteOnce
+            storageClassName: standard
+            # storage class name can be found :- kubectl get sc     standard in default for minikube which is of hostPath
+            resources:
+               requests:
+                  storage: 1Gi
