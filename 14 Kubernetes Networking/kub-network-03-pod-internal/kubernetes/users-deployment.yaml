@@ -19,4 +19,4 @@ spec:
             - name: AUTH_ADDRESS
               value: localhost
         - name: auth
-          image: academind/kub-demo-auth:v1
+          image: deepakkum21/kub-demo-auth:v1
