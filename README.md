@@ -569,3 +569,14 @@
 4. run cmd `aws configure` and enter access key
 5. enter region name.
 6. `aws eks --region nameOfRegion update-kubeconfig --name nameOfClusterOnEKS` this will configure the config file in .kube in users folder so that u will be able to use kubctl cmd.
+
+## Creating NodeGroup
+
+1. in compute section. click add node group.
+2. Give a name.
+3. Creating a node IAM role.
+   - click IAM(identity access management) create a new role
+   - `choose AWS service and ec2`
+   - add `AmazonEKSWorkerNodePolicy` `AmazonEKS_CNI_Policy` `AmazonEC2ContainerRegistryReadOnly` add these 3 policies.
+   - give a name.
+4. now select image for node, instance type and disk size
