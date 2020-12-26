@@ -542,3 +542,21 @@
 - `pv` (persistent volume)
 - `pvc` (persistent volume claim)
 - `configMap`
+
+## Creating Cluster in EKS
+
+1. Select EKS. give a name to your cluster.
+2. Select kubernetes Ver.
+3. `Pick a cluster service role` create if not - this helps kubernetes to create some node of EC2 type with proper permission.
+   - click IAM(identity access management) create a new role
+   - `choose AWS service and choose EKS-Cluster` with predefined roles required for EKS.
+   - give a name to the clusterRole.
+4. Specifying the network. so that it should also be accessible from inside and outside
+   - open `cloudformation` service in new tab.
+   - it helps in creating some services using templates.
+   - click create. select template ready, template source AmazonS3.
+     - paste `https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml`
+     - more info at https://docs.aws.amazon.com/eks/latest/userguide/create-public-private-vpc.html#create-vpc
+   - give stack a name.
+5. in the VPC section select the newly ccreated VPC.
+6. Choosing cluster end point access as `public and private`.
