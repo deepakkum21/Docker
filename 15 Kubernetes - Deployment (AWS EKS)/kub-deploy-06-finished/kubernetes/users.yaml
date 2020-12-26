@@ -9,7 +9,7 @@ kind: PersistentVolume
 metadata:
   name: efs-pv
 spec:
-  capacity: 
+  capacity:
     storage: 5Gi
   volumeMode: Filesystem
   accessModes:
@@ -60,16 +60,16 @@ spec:
     spec:
       containers:
         - name: users-api
-          image: academind/kub-dep-users:latest
+          image: deepakkum21/kub-dep-users:latest
           env:
             - name: MONGODB_CONNECTION_URI
-              value: 'mongodb+srv://maximilian:wk4nFupsbntPbB3l@cluster0.ntrwp.mongodb.net/users?retryWrites=true&w=majority'
+              value: "mongodb+srv://maximilian:wk4nFupsbntPbB3l@cluster0.ntrwp.mongodb.net/users?retryWrites=true&w=majority"
             - name: AUTH_API_ADDRESS
-              value: 'auth-service.default:3000'
+              value: "auth-service.default:3000"
           volumeMounts:
             - name: efs-vol
               mountPath: /app/users
       volumes:
         - name: efs-vol
-          persistentVolumeClaim: 
+          persistentVolumeClaim:
             claimName: efs-pvc
