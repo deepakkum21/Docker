@@ -580,3 +580,4 @@
    - add `AmazonEKSWorkerNodePolicy` `AmazonEKS_CNI_Policy` `AmazonEC2ContainerRegistryReadOnly` add these 3 policies.
    - give a name.
 4. now select image for node, instance type and disk size
+5. this will install kubectl on node and all other needed things
