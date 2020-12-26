@@ -560,3 +560,12 @@
    - give stack a name.
 5. in the VPC section select the newly ccreated VPC.
 6. Choosing cluster end point access as `public and private`.
+
+## Steps to use kubectl cms from ur machine for AWS - EKS
+
+1. install aws cli.
+2. go to my security credentials in AWS.
+3. open Access keys and create one and download the key file.
+4. run cmd `aws configure` and enter access key
+5. enter region name.
+6. `aws eks --region nameOfRegion update-kubeconfig --name nameOfClusterOnEKS` this will configure the config file in .kube in users folder so that u will be able to use kubctl cmd.
