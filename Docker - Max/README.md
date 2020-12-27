@@ -60,6 +60,7 @@
 21. `docker pull reponame/imagename:version_or_tag`
 22. `docker container top containerName_ID` to show the processes running inside the container.
 23. `docker container stats` to show the stats like ram, cpu, mem, network used by container
+24. `docker exec [OPTIONS] CONTAINER COMMAND [ARG...]` Run a command in a running container
 
 ## Volumes and persistence
 
