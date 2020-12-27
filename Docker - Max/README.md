@@ -40,8 +40,8 @@
 1. `docker build dockerFilePath`
 2. `docker run -p outsideport:internalexposedport imageId/imgaeName` **(it starts in attached mode**
 3. `docker stop containerName/id`
-4. `docker ps`
-5. `docker ps -a`
+4. `docker ps` or `docker container ls/ps`
+5. `docker ps -a` or `docker container ls/ps -a`
 6. `docker rmi imageId/imgaeName` (-removeimage) **(before stopping a image container's realted to the image has to removed )**
 7. `docker rm containerName/id` **(before stopping a running container it has to stopped)**
 8. `docker start stoppedcontainerName/id (to start stopped container)` **(it starts in dettached mode**
@@ -58,6 +58,7 @@
 19. `docker tag previousname:tag reponame/newimagename:tag` **to rename a image for pushing in dockerhub**
 20. `docker push reponame/imagename:version_or_tag`
 21. `docker pull reponame/imagename:version_or_tag`
+22. `docker container top containerName_ID` to show the processes running inside the container.
 
 ## Volumes and persistence
 
