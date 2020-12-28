@@ -1,0 +1,10 @@
+- giving the 2 or many container same alias name in the same network routes as DNS and work as loadbalancer
+
+- eg:-
+- docker container run --rm -d --net search-alias --network-alias search elasticsearch:2
+- docker container run --rm -d --net search-alias --network-alias search elasticsearch:2
+
+- docker container run --rm --net search-alias alpine nslookup search
+
+- docker container run --rm --net search-alias centos:7 curl -s search:9200
+- the above cmd gives output with different clusterid proving the response is being routed to different elastic search
