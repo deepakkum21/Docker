@@ -1,0 +1,78 @@
+
+011 Download-Docker-CE-for-Windows
+https://store.docker.com/editions/community/docker-ce-desktop-windows
+
+011 Download-GitHub-Desktop
+https://desktop.github.com/
+
+011 Download-Visual-Studio-Code
+https://code.visualstudio.com/
+
+011 Download-cmder-optional-
+http://cmder.net/
+
+011 Docker-for-Windows-FAQ
+https://docs.docker.com/docker-for-windows/faqs/
+
+011 Clone-this-GitHub-Repo
+https://github.com/BretFisher/udemy-docker-mastery.git
+
+011 Tab-Completion-for-Windows-PowerShell
+https://github.com/matt9ucci/DockerCompletion
+
+011 Getting-Started-with-Docker-for-Windows
+https://docs.docker.com/docker-for-windows/
+
+012 Download-Docker-CE-for-Mac
+https://store.docker.com/editions/community/docker-ce-desktop-mac
+
+012 Download-GitHub-Desktop
+https://desktop.github.com/
+
+012 Download-iTerm2
+https://www.iterm2.com/
+
+012 Download-Visual-Studio-Code
+https://code.visualstudio.com/
+
+012 Installing-Homebrew-the-brew-CLI-
+https://brew.sh/
+
+012 Clone-This-GitHub-Repo
+https://github.com/BretFisher/udemy-docker-mastery.git
+
+012 Logs-and-troubleshooting-Docker-for-Mac
+https://docs.docker.com/docker-for-mac/troubleshoot/
+
+012 Docs-Configure-shell-completion-on-Mac
+https://docs.docker.com/docker-for-mac/#install-shell-completion
+
+013 Download-GitHub-Desktop
+https://desktop.github.com/
+
+013 Download-Visual-Studio-Code
+https://code.visualstudio.com/
+
+013 Download-cmder-optional-
+http://cmder.net/
+
+013 Download-Docker-Toolbox
+https://docs.docker.com/toolbox/overview/
+
+013 Clone-this-GitHub-Repo
+https://github.com/BretFisher/udemy-docker-mastery.git
+
+014 Download-Docker-CE-for-your-Linux-distribution
+https://store.docker.com
+
+014 Download-Visual-Studio-Code
+https://code.visualstudio.com
+
+014 Download-Docker-Compose
+https://docs.docker.com/compose/install/
+
+014 Download-Docker-Machine
+https://docs.docker.com/machine/install-machine/
+
+014 Clone-This-GitHub-Repo
+https://github.com/BretFisher/udemy-docker-mastery.git
