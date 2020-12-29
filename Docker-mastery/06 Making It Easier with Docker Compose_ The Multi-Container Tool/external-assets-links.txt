@@ -1,0 +1,27 @@
+
+055 The-YAML-Format-Sample-Generic-YAML-File
+http://www.yaml.org/start.html
+
+055 The-YAML-Format-Quick-Reference
+http://www.yaml.org/refcard.html
+
+055 Compose-File-Version-Differences-Docker-Docs-
+https://docs.docker.com/compose/compose-file/compose-versioning/
+
+055 Docker-Compose-Release-Downloads-good-for-Linux-users-that-need-to-download-manually-
+https://github.com/docker/compose/releases
+
+056 docker-compose-download-for-Linux-via-GitHub-Win-Mac-already-have-it.
+https://github.com/docker/compose/releases
+
+056 Production-Servers-Compose-vs.Swarm
+https://github.com/BretFisher/ama/issues/8
+
+057 Compose-File-Settings-BOOKMARK-AND-REVIEW.Youll-use-it-often-when-making-compose-files.
+https://docs.docker.com/compose/compose-file/
+
+057 Dont-use-Links-Its-a-legacy-feature-of-compose-and-isnt-needed
+https://docs.docker.com/compose/compose-file/#links
+
+059 -Docker-Docs-Compose-file-build-options
+https://docs.docker.com/compose/compose-file/#build
