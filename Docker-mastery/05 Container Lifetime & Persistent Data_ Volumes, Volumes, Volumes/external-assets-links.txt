@@ -1,0 +1,15 @@
+
+046 Intro-to-Immutable-Infrastructure-Concepts
+https://www.oreilly.com/ideas/an-introduction-to-immutable-infrastructure
+
+046 The-12-Factor-App-Everyone-Should-Read-Key-to-Cloud-Native-App-Design-Deployment-and-Operation-
+https://12factor.net/
+
+046 12-Fractured-Apps-A-follow-up-to-12-Factor-a-great-article-on-how-to-do-12F-correctly-in-containers-
+https://medium.com/@kelseyhightower/12-fractured-apps-1080c73d481c#.cjvkgw4b3
+
+046 Docker-Storage-Introduction-in-Docker-Docs
+https://docs.docker.com/storage/
+
+052 Jekyll-a-Static-Site-Generator-just-as-background-info-no-need-to-install-
+https://jekyllrb.com
