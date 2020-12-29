@@ -1,0 +1,27 @@
+
+021 Mike-Coleman-Docker-Employee-Docker-for-the-Virtualization-Admin-eBook
+https://github.com/mikegcoleman/docker101/blob/master/Docker_eBook_Jan_2017.pdf
+
+021 Docker-Internals-cgroups-namespaces-and-beyond-YouTube-
+https://youtu.be/sK5i-N34im8?list=PLBmVKD7o3L8v7Kl_XXh3KaJl9Qw2lyuFl
+
+021 Docker-for-Mac-Commands-for-Getting-Into-Local-Docker-VM
+https://www.bretfisher.com/docker-for-mac-commands-for-getting-into-local-docker-vm/
+
+021 Docker-for-Windows-Command-for-Getting-Into-Local-Docker-VM
+https://www.bretfisher.com/getting-a-shell-in-the-docker-for-windows-vm/
+
+026 Package-Management-Basics-apt-yum-dnf-pkg
+https://www.digitalocean.com/community/tutorials/package-management-basics-apt-yum-dnf-pkg
+
+027 Dockers-format-option-for-filtering-cli-output
+https://docs.docker.com/engine/admin/formatting/
+
+030 DNS-Basics-blog-and-video-
+https://dyn.com/blog/dns-why-its-important-how-it-works/
+
+030 DNS-Basics-in-a-comic-fun-
+https://howdns.works/
+
+034 Round-robin-DNS-what-is-it-
+https://en.wikipedia.org/wiki/Round-robin_DNS
