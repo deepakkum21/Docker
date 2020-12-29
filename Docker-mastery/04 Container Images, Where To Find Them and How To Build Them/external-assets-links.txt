@@ -1,0 +1,12 @@
+
+036 Official-Docker-Image-Specification
+https://github.com/docker/docker/blob/master/image/spec/v1.md
+
+037 List-of-Official-Docker-Images
+https://github.com/docker-library/official-images/tree/master/library
+
+038 Images-and-Containers-From-Docker-Docs
+https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
+
+040 Dockerfile-Command-Details-BOOKMARK-AND-REVIEW-lots-of-good-details-youll-use-often-when-making-Dockerfiles-
+https://docs.docker.com/engine/reference/builder/
