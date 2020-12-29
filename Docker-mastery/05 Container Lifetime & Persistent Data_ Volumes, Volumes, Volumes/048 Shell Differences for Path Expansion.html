@@ -1,0 +1,18 @@
+
+                <html>
+                <head>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <title>048 Shell Differences for Path Expansion</title>
+                </head>
+                <body>
+                <div class="container">
+                <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p class="lead"><p>In the next lecture, you'll learn how to share files and directories between a host and a Docker container. One of the parts of the command line you'll need to type is the host file path you want to share.</p><p>With Docker CLI, you can always use a full file path on any OS, but often you'll see me and others use a "parameter expansion"&nbsp;like <code>$(pwd)</code> which means "print working directory".</p><p><strong>Here's the important part. Each shell may do this differently,</strong> so here's a cheat sheet for which OS&nbsp;and Shell your using. I'll be using $(pwd)&nbsp;on a Mac, <strong>but yours may be different!</strong></p><p>This isn't a Docker thing, it's a Shell thing.</p><p>For PowerShell use: <code>${pwd}</code>&nbsp;</p><p>For cmd.exe "Command Prompt use:&nbsp;<code>%cd%</code></p><p>Linux/macOS&nbsp;bash, sh, zsh, and Windows Docker Toolbox Quickstart Terminal use: <code>$(pwd)</code>&nbsp;</p><p>Note, if you have spaces in your path, you'll usually need to quote the whole path in the docker command.</p></p>
+                </div>
+                </div>
+                </div>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                </body>
+                </html>
+                
