@@ -222,6 +222,11 @@
                   data:
                   logs:
 
+## Using Variable interpolation in Docker compose
+
+- where ever using `${vraible}` in docker compose file just prepend the variablw=value before docker-compose cmd
+- eg. `VARIABLE=VALUE docker-compose up`
+
 ## Things Docker compose can do what dockerfiles can do
 
 - it `has entrypoint` just like dockerfiles
@@ -584,3 +589,20 @@
    - give a name.
 4. now select image for node, instance type and disk size
 5. this will install kubectl on node and all other needed things
+
+## Docker Swarm
+
+- By default **sarm is inactive**
+- `docker swarm init` to activate swarm. it initailizes single node swarm
+- `docker node ls` to list the nodes. swarm manager is also is a node.
+- `docker node inspect self/nodeId`
+- `docker node promote`
+- `docker node demote`
+- `docker node ps`
+
+- `docker swarm join-token`
+- `docker swarm leave`
+- `docker swarm join`
+
+- `docker service create`
+- `docker service update servicename --replicas count`
