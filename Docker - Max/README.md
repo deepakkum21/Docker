@@ -227,6 +227,13 @@
 - where ever using `${vraible}` in docker compose file just prepend the variablw=value before docker-compose cmd
 - eg. `VARIABLE=VALUE docker-compose up`
 
+## Avoiding redundancy in using **docker-compose.override.yml**
+
+- suppose if u want to have a extra service running in some mode either dev or prod. Instead of creating the same service again and adding extra one one can add only the extra one in the **docker-compose.override.yml** .
+- running `docker-compose up` by default searches for `docker-compose.yml` file and also merges the services present in `
+  **docker-compose.override.yml** if present.
+- `https://docs.docker.com/compose/extends/`
+
 ## Things Docker compose can do what dockerfiles can do
 
 - it `has entrypoint` just like dockerfiles
