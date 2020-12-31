@@ -242,6 +242,57 @@
 2. If a service is defined in both files, Compose merges the configurations using the rules described in Adding and overriding configuration( https://docs.docker.com/compose/extends/#adding-and-overriding-configuration) .
 3. To use multiple override files, or an override file with a different name, you can use the -f option to specify the list of files. Compose merges files in the order they’re specified on the command line.
 4. When you use multiple configuration files, you must `make sure all paths in the files are relative to the base Compose file` (the first Compose file specified with -f).
+5. eg in docker-compose-with-override folder
+
+## Understand the extends configuration
+
+1.  When defining any service in docker-compose.yml, you can declare that you are extending another service like this:
+
+         web:
+            extends:
+               file: common-services.yml
+               service: webapp
+
+2.  This instructs Compose to re-use the configuration for the webapp service defined in the common-services.yml file. Suppose that common-services.yml looks like this:
+
+         webapp:
+            build: .
+            ports:
+               - "8000:8000"
+            volumes:
+               - "/data"
+
+3.  In this case, you get exactly the same result as if you wrote docker-compose.yml with the same build, ports and volumes configuration values defined directly under web.
+
+4.  You can go further and define (or re-define) configuration locally in docker-compose.yml:
+
+         web:
+            extends:
+               file: common-services.yml
+               service: webapp
+            environment:
+               - DEBUG=1
+            cpu_shares: 5
+
+         important_web:
+            extends: web
+            cpu_shares: 10
+
+5.  You can also write other services and link your web service to them:
+
+         web:
+            extends:
+               file: common-services.yml
+               service: webapp
+            environment:
+               - DEBUG=1
+            cpu_shares: 5
+            depends_on:
+               - db
+         db:
+            image: postgres
+
+6.  more details `https://docs.docker.com/compose/extends/?ref=hackernoon.com#example-use-case-1`
 
 ## Things Docker compose can do what dockerfiles can do
 
