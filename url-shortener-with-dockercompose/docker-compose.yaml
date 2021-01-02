@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  mongodb:
+    image: "mongo"
+    volumes:
+      - data:/data/db
+    ports:
+      - "27017:27017"
+    # container_name: mongodb                         // explicitly giving the name for the container since default name is profoldername_servicename_incrementedvalue
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: max
+    #   MONGO_INITDB_ROOT_PASSWORD: secret
+    # - MONGO_INITDB_ROOT_USERNAME=max
+    env_file:
+      - ./env/mongo.env
+  # networks:
+  #   - goals-net         // can have but compose will create a fresh new network automatically for all the container/services so no need to mention networks
+
+  urlshortener:
+    build:
+      context: ./app
+      dockerfile: ${DOCKER_FILE}
+    ports:
+      - "8000:8080"
+
+      # this command overrides the default CMD mentioned in the docker file
+    command: npm start
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+volumes:
+  data:
