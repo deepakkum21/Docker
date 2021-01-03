@@ -7,7 +7,7 @@ yarn-error.log*
 lerna-debug.log*
 
 # docker-mastery git
-Docker-mastery/udemy-docker-mastery/
+#Docker-mastery/udemy-docker-mastery/
 Docker-mastery/udemy-docker-mastery/.git/
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
