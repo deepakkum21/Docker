@@ -1,0 +1,74 @@
+
+                <html>
+                <head>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <title>064 UI Change For Service Create_Update</title>
+                </head>
+                <body>
+                <div class="container">
+                <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p class="lead"><p>You may notice that when using <code>docker service create</code>  and <code>update</code> , that the CLI acts differently for some Lectures then your own Docker. This is due to a change in the way Docker CLI shows the service commands in 2017.<br></p>
+
+<blockquote>--detach is a new option that changes the CLI response after you run a command.</blockquote>
+
+<p>This is a good thing, and doesn't affect the functionality of Swarm. It's just a UI difference. I use various 2017 versions of Docker in this course, so you may see different output for your own service create/update commands vs. mine, which is fine.<br></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><strong>History of changes to CLI output for service create/update:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol><li><strong>Before 17.05</strong>, the service commands would immediately return to your shell prompt and the containers would be scheduled in the background (asynchronously). To check if they deployed properly you would need to use docker service ls and docker service ps.</li><li><strong>Starting in 17.05</strong> the service commands were given a <code>--detach</code>  option, which defaulted to <code>true</code> , but warned you each time about a future change to <code>false</code> . The create/update commands were still asynchronous.</li><li><strong>Starting in 17.10</strong> the <code>--detach</code>  default changes to <code>false</code> , so you'll always see the UI wait synchronously while service tasks are deployed/updated, unless you set <code>--detach true</code>  in each command.</li></ol><p><strong>For all stable versions after 17.12, just remember:</strong></p>
+
+<ul><li>Use the defaults if you're interactive at the CLI, typing commands yourself.</li><li>Use <code>--detach true</code>  if you're using automation or shell scripts to get things done.</li></ul></p>
+                </div>
+                </div>
+                </div>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                </body>
+                </html>
+                
