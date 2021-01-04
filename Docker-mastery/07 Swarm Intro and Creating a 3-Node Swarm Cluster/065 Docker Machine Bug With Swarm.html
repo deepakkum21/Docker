@@ -1,0 +1,18 @@
+
+                <html>
+                <head>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <title>065 Docker Machine Bug With Swarm</title>
+                </head>
+                <body>
+                <div class="container">
+                <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p class="lead"><p>If you're planning to use docker-machine to create local VM's for Swarm, <strong>note there is a bug in 18.09.0</strong> that prevents Swarm network ports from listening. This is fixed in 18.09.1 so make sure you have the latest Docker Desktop or Docker Toolbox and your VM's are up to date. </p><p><strong>Current versions (October 2019) include:</strong></p><p><code>docker version</code> 19.03.2</p><p><code>docker-machine version</code> 0.16.2</p><p><strong>To ensure you have the latest Docker Toolbox</strong>, download it from the <a href="https://github.com/docker/toolbox/releases" rel="noopener noreferrer" target="_blank">GitHub release page</a>.</p><p>You'll know you're up to date when you do a <code>docker-machine ls</code> and the VM's have 18.09.1 or later.</p><p>To update existing docker-machine VM's, you can use <code>docker-machine upgrade &lt;name of vm&gt;</code>.</p></p>
+                </div>
+                </div>
+                </div>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                </body>
+                </html>
+                
