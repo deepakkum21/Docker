@@ -671,5 +671,5 @@
 - `docker swarm leave`
 - `docker swarm join`
 
-- `docker service create`
+- `docker service create` docker service is similar to docker run
 - `docker service update servicename --replicas count`
