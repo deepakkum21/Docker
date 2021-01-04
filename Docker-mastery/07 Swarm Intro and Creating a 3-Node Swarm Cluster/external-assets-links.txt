@@ -1,0 +1,33 @@
+
+062 Docker-1.12-Swarm-Mode-Deep-Dive-Part-1-Topology-YouTube-
+https://www.youtube.com/watch?v=dooPhkXT9yI
+
+062 Docker-1.12-Swarm-Mode-Deep-Dive-Part-2-Orchestration-YouTube-
+https://www.youtube.com/watch?v=_F6PSP-qhdA
+
+062 Heart-of-the-SwarmKit-Topology-Management-slides-
+https://speakerdeck.com/aluzzardi/heart-of-the-swarmkit-topology-management
+
+062 Heart-of-the-SwarmKit-Store-Topology-Object-Model-YouTube-
+https://www.youtube.com/watch?v=EmePhjGnCXY
+
+062 Raft-Consensus-Visualization-Our-Swarm-DB-and-how-it-stays-in-sync-across-nodes-
+http://thesecretlivesofdata.com/raft/
+
+063 Deploy-services-to-a-swarm-Docker-Docs-
+https://docs.docker.com/engine/swarm/services/
+
+066 Create-and-Upload-a-SSH-Key-to-Digital-Ocean
+https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets
+
+066 Docker-Swarm-Firewall-Ports
+http://www.bretfisher.com/docker-swarm-firewall-ports/
+
+066 Configure-SSH-for-Saving-Options-for-Specific-Connections
+https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client
+
+066 Windows-Hyper-V-driver-for-docker-machine
+https://docs.docker.com/machine/drivers/hyper-v/
+
+066 DigitalOcean-100-credit-on-new-signups
+https://m.do.co/c/ee97875d52fa
