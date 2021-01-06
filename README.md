@@ -742,7 +742,7 @@
 
   - `once service with label has been created` and more load is seen on the node and one `creates/updates another node with the same custom label`. the `load or the service instance will not be shared` so create the node with the custom label in advance
 
-  ## Setting custom label:
+  ## Setting custom label at different level:
 
   1. `Node Level`:-
 
@@ -757,3 +757,14 @@
   - if the node is already started then restart it.
   - one can see the assigned labels by inspecting the node. engine level label will be under the engine key.
   - `docker service create --constraint="engine.labels.customLabelName==value" imageName` to add to the particular node having the custom engine label.
+
+  ## Docker Swarm Node Availability [active | pause | drain]
+
+  1. `Active`:- this state of the node means it can take new jobs from the manager.
+  2. `pause`:- this means all the existing services running in the node will run as usual but it will not take new task from the manager.
+
+  - `docker node update --availability=pause nodeName`
+
+  3. `drain`:- this will shift all the runnin services from the drain node to the other node in the cluster. so that one can do maintainance work in that node.
+
+  - `docker node update --availability=drain nodeName`
