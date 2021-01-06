@@ -720,3 +720,14 @@
 - `docker service create --mode=global imageName` the mode global creates a instance in every node.
 - `if the node increases in future the service with mode global will automatically` will be created.
 - this use case is `helpful when one want a particular service to be running in evry node created like antivirus, health monitoring` service.
+
+## CONSTAINT node.role
+
+1. if `want to run services only on manager`
+
+   - **--constraint="node.role==manager"**
+   - `docker service create --constraint="node.role==manager" imageName` this will make this service eligible to run only on manager nodes.
+
+2. if `want to run services only on worker nodes`
+   - **--constraint="node.role==worker"**
+   - `docker service create --constraint="node.role==worker" imageName` this will make this service eligible to run only on worker nodes.
