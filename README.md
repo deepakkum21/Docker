@@ -776,3 +776,14 @@
 - `--limit-cpu` limiting cpu for the service so that it should not exceed
 - `--limit-memory` limiting no of bytes for the service so that it should not exceed
 - `docker service create aboveOptions`
+
+## Docker swarm update service with upadte options
+
+| update cmd with --update option  | description                                                              |
+| -------------------------------- | ------------------------------------------------------------------------ |
+| --update-delay duration          | Delay between updates (ns,us,ms,s,m,h)                                   |
+| --update-failure-action string   | Action on update failure ("pause","continue","rollback")                 |
+| --update-max-failure-ratio float | Failure rate to tolerate during an update                                |
+| --update-monitor duration        | Duration after each task update to monitor for failure (ns,us,ms,s,m,h)  |
+| --update-order string            | Update order ("start-first","stop-first")                                |
+| --update-parallelism uint        | Maximum number of tasks updated simultaneously (0 to update all at once) |
