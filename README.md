@@ -731,3 +731,8 @@
 2. if `want to run services only on worker nodes`
    - **--constraint="node.role==worker"**
    - `docker service create --constraint="node.role==worker" imageName` this will make this service eligible to run only on worker nodes.
+
+## Assigning Custom Lables to nodes.
+
+- use case:-
+  - suppose u have a node with ssd and would like some of the services to be executed on ssd.
