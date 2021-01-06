@@ -674,6 +674,7 @@
 
 - `docker service create` docker service is similar to docker run
 - `docker service update servicename --replicas count`
+- `docker service scale serviceName1=count serviceName2=count` to scale up
 
 ## Docker swarm Overlay network:-
 
