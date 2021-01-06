@@ -676,6 +676,10 @@
 - `docker service update servicename --replicas count`
 - `docker service scale serviceName1=count serviceName2=count` to scale up
 
+## Notes:-
+
+- one can access the service from the any of the node IP present in the swarm cluster with the port of the service.
+
 ## Docker swarm Overlay network:-
 
 - `overlay network` is the only network which is used in the swarm.
@@ -700,6 +704,7 @@
 3. Only those services can use the secret which has been assigned.
    - `docker service create -d --secret nameOfSecret imgaeName`
 4. these secrets are **stored under** the `/run/secrets/secretName` in the container whcih has been assigned the secret.
+5. more info https://docs.docker.com/engine/swarm/secrets/
 
 - `docker secret create nameOfSecret -`:- this will create a secret with nameOfSecret `-` this will allow you to write the secret.
 - `docker secret create nameOfSecret fileNameWhichYouWantToMakeSecret`:- another way of creating secret by using file
