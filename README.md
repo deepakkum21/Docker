@@ -710,3 +710,7 @@
 - `docker secret create nameOfSecret fileNameWhichYouWantToMakeSecret`:- another way of creating secret by using file
 - `docker secret ls`:- list out the secret
 - `docker secret inspect nameOfSecret`:-
+
+# Docker swarm visualizer
+
+- more info https://github.com/dockersamples/docker-swarm-visualizer
