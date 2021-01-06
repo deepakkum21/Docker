@@ -695,6 +695,9 @@
    - Other important data such as the name of a database or internal server
    - Generic strings or binary content (up to 500 kb in size)
 2. `Docker secrets are only available to swarm services, not to standalone containers`.
+3. Only those services can use the secret which has been assigned.
+   - `docker service create -d --secret nameOfSecret imgaeName`
+4. these secrets are **stored under** the `/run/secrets/secretName` in the container whcih has been assigned the secret.
 
 - `docker secret create nameOfSecret -`:- this will create a secret with nameOfSecret `-` this will allow you to write the secret.
 - `docker secret create nameOfSecret fileNameWhichYouWantToMakeSecret`:- another way of creating secret by using file
