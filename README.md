@@ -736,3 +736,7 @@
 
 - use case:-
   - suppose u have a node with ssd and would like some of the services to be executed on ssd.
+- `docker node update --label-add="ssd=true" nodeName` to add a custom label to node
+- `docker service create --constraint="node.labels.customLabelName==value" imageName` to add to the particular node having the custom label.
+- **NOTE**
+  - `once service with label has been created` and more load is seen on the node and one `creates/updates another node with the same custom label`. the `load or the service instance will not be shared` so create the node with the custom label in advance
