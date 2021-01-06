@@ -660,7 +660,7 @@
 ## Docker Swarm
 
 - By default **sarm is inactive**
-- when created `it uses ingress network` **with builtin loadbalancing**
+- when created `it uses ingress overlay network` **with builtin loadbalancing**
 - `docker swarm init` to activate swarm. it initailizes single node swarm
 - `docker node ls` to list the nodes. swarm manager is also is a node.
 - `docker node inspect self/nodeId`
@@ -695,6 +695,12 @@
 1. docker stack is a command that's embedded into the Docker CLI.
 2. It lets you `manage a cluster of Docker containers through Docker Swarm`.
 3. It just so `happens both Docker Compose and the docker stack command support the same docker-compose. yml file with slightly different features`.
+4. docker stack cmds:-
+   - `docker stack deploy -c composeFile.yaml nameWhichYouWantToGiveForStack`
+   - `docker stack ls`
+   - `docker stack ps stackName`
+   - `docker stack rm stackName`
+   - `docker stack services stackName`
 
 # Docker SECRET (only available to swarm services):-
 
