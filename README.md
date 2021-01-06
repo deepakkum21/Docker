@@ -739,4 +739,21 @@
 - `docker node update --label-add="ssd=true" nodeName` to add a custom label to node
 - `docker service create --constraint="node.labels.customLabelName==value" imageName` to add to the particular node having the custom label.
 - **NOTE**
+
   - `once service with label has been created` and more load is seen on the node and one `creates/updates another node with the same custom label`. the `load or the service instance will not be shared` so create the node with the custom label in advance
+
+  ## Setting custom label:
+
+  1. `Node Level`:-
+
+  - `docker node update --label-add="ssd=true" nodeName` to add a custom label to node
+  - `docker service create --constraint="node.labels.customLabelName==value" imageName` to add to the particular node having the custom node label.
+
+  2. `Engine Level`:-
+
+  - **edit dameon.json file**
+  - add:-
+  - "labels": ["key=value"]
+  - if the node is already started then restart it.
+  - one can see the assigned labels by inspecting the node. engine level label will be under the engine key.
+  - `docker service create --constraint="engine.labels.customLabelName==value" imageName` to add to the particular node having the custom engine label.
