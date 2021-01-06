@@ -660,6 +660,7 @@
 ## Docker Swarm
 
 - By default **sarm is inactive**
+- when created `it uses ingress network` **with builtin loadbalancing**
 - `docker swarm init` to activate swarm. it initailizes single node swarm
 - `docker node ls` to list the nodes. swarm manager is also is a node.
 - `docker node inspect self/nodeId`
@@ -679,6 +680,9 @@
 ## Notes:-
 
 - one can access the service from the any of the node IP present in the swarm cluster with the port of the service.
+  this is called `routing mesh`
+- `ingress network` already **has a builtin loadbalancer**.
+  - this is `automatically created when one creates a docker swarm`
 
 ## Docker swarm Overlay network:-
 
