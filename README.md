@@ -692,15 +692,41 @@
 
 ## Docker Stack:-
 
-1. docker stack is a command that's embedded into the Docker CLI.
-2. It lets you `manage a cluster of Docker containers through Docker Swarm`.
-3. It just so `happens both Docker Compose and the docker stack command support the same docker-compose. yml file with slightly different features`.
-4. docker stack cmds:-
-   - `docker stack deploy -c composeFile.yaml nameWhichYouWantToGiveForStack`
-   - `docker stack ls`
-   - `docker stack ps stackName`
-   - `docker stack rm stackName`
-   - `docker stack services stackName`
+1.  docker stack is a command that's embedded into the Docker CLI.
+2.  It lets you `manage a cluster of Docker containers through Docker Swarm`.
+3.  It just so `happens both Docker Compose and the docker stack command support the same docker-compose. yml file with slightly different features`.
+4.  docker stack cmds:-
+    - `docker stack deploy -c composeFile.yaml nameWhichYouWantToGiveForStack`
+    - `docker stack ls`
+    - `docker stack ps stackName`
+    - `docker stack rm stackName`
+    - `docker stack services stackName`
+5.  more info https://docs.docker.com/compose/compose-file/compose-file-v3/
+6.  can be created using docker-compose
+7.  **Note when using docker stack deploy**:-
+
+    - The `build option is ignored when deploying a stack in swarm mode` The docker stack command does not build images before deploying.
+    - The `container_name option is ignored when deploying` a stack in swarm mode.
+    - The `depends_on option is ignored` when deploying a stack in swarm mode
+
+8.  **deploy**
+
+    - `Specify configuration related to the deployment and running of services`.
+    - This `only takes effect when deploying to a swarm with docker stack deploy`, and is `ignored by docker-compose up and docker-compose run`
+
+              version: "3.9"
+              services:
+                 redis:
+                    image: redis:alpine
+                    deploy:
+                       replicas: 6
+                       placement:
+                          max_replicas_per_node: 1
+                       update_config:
+                          parallelism: 2
+                          delay: 10s
+                       restart_policy:
+                          condition: on-failure
 
 # Docker SECRET (only available to swarm services):-
 
