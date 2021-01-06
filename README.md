@@ -714,3 +714,9 @@
 # Docker swarm visualizer
 
 - more info https://github.com/dockersamples/docker-swarm-visualizer
+
+## Docker Service mode --global
+
+- `docker service create --mode=global imageName` the mode global creates a instance in every node.
+- `if the node increases in future the service with mode global will automatically` will be created.
+- this use case is `helpful when one want a particular service to be running in evry node created like antivirus, health monitoring` service.
