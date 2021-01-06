@@ -667,7 +667,7 @@
 - `docker node demote`
 - `docker node ps`
 
-- `docker swarm join-token`
+- `docker swarm join-token [manager|worker]` manager will give token to join as manager, worker for joining as worker
 - `docker swarm leave`
 - `docker swarm join`
 
