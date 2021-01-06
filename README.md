@@ -673,3 +673,9 @@
 
 - `docker service create` docker service is similar to docker run
 - `docker service update servicename --replicas count`
+
+## Docker swarm Overlay network:-
+
+- `overlay network` is the only network which is used in the swarm.
+  - The overlay network driver creates a distributed network among multiple Docker daemon hosts. This network sits on top of (overlays) the host-specific networks, allowing containers connected to it (including swarm service containers) to communicate securely when encryption is enabled.
+  - `docker network create overlay`
