@@ -686,7 +686,7 @@
 2. It lets you `manage a cluster of Docker containers through Docker Swarm`.
 3. It just so `happens both Docker Compose and the docker stack command support the same docker-compose. yml file with slightly different features`.
 
-# Docker SECRET:-
+# Docker SECRET (only available to swarm services):-
 
 1. You can use secrets to manage any sensitive data which a container needs at runtime but you don’t want to store in the image or in source control, such as:
    - Usernames and passwords
@@ -694,6 +694,7 @@
    - SSH keys
    - Other important data such as the name of a database or internal server
    - Generic strings or binary content (up to 500 kb in size)
+2. `Docker secrets are only available to swarm services, not to standalone containers`.
 
 - `docker secret create nameOfSecret -`:- this will create a secret with nameOfSecret `-` this will allow you to write the secret.
 - `docker secret create nameOfSecret fileNameWhichYouWantToMakeSecret`:- another way of creating secret by using file
