@@ -679,3 +679,9 @@
 - `overlay network` is the only network which is used in the swarm.
   - The overlay network driver creates a distributed network among multiple Docker daemon hosts. This network sits on top of (overlays) the host-specific networks, allowing containers connected to it (including swarm service containers) to communicate securely when encryption is enabled.
   - `docker network create -d overlay networknameWhichYouWantToGive` -d drivername:- overlay
+
+## Docker Stack:-
+
+1. docker stack is a command that's embedded into the Docker CLI.
+2. It lets you `manage a cluster of Docker containers through Docker Swarm`.
+3. It just so `happens both Docker Compose and the docker stack command support the same docker-compose. yml file with slightly different features`.
