@@ -678,4 +678,4 @@
 
 - `overlay network` is the only network which is used in the swarm.
   - The overlay network driver creates a distributed network among multiple Docker daemon hosts. This network sits on top of (overlays) the host-specific networks, allowing containers connected to it (including swarm service containers) to communicate securely when encryption is enabled.
-  - `docker network create overlay`
+  - `docker network create -d overlay networknameWhichYouWantToGive` -d drivername:- overlay
