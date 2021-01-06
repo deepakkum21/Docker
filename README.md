@@ -768,3 +768,11 @@
   3. `drain`:- this will shift all the runnin services from the drain node to the other node in the cluster. so that one can do maintainance work in that node.
 
   - `docker node update --availability=drain nodeName`
+
+## Reserving and Limiting resources in Docker swarm
+
+- `--reserve-cpu`reserving cpu for the service
+- `--reserve-memory` reserving no of bytes for the service
+- `--limit-cpu` limiting cpu for the service so that it should not exceed
+- `--limit-memory` limiting no of bytes for the service so that it should not exceed
+- `docker service create aboveOptions`
