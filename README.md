@@ -823,3 +823,70 @@
 | --update-monitor duration        | Duration after each task update to monitor for failure (ns,us,ms,s,m,h)  |
 | --update-order string            | Update order ("start-first","stop-first")                                |
 | --update-parallelism uint        | Maximum number of tasks updated simultaneously (0 to update all at once) |
+
+## Docker EVENTS [https://docs.docker.com/engine/reference/commandline/events/]
+
+- to `get real-time events from the server`.
+- These events differ per Docker object type.
+- Different event types have different scopes.
+- Local scoped events are only seen on the node they take place on, and `swarm scoped events are seen on all managers`.
+- Only the `last 1000 log events are returned`. You can `use filters to further limit the number of events returned`.
+
+1. `docker events` Listening for events
+2. **LIMIT EVENTS BY TIME**
+   - `docker events --since 1483283804`
+   - `docker events --since '2017-01-05'`
+   - `docker events --since '2013-09-03T15:49:29'`
+   - `docker events --since '10m'`
+   - `docker events --since '2017-01-05T00:35:30' --until '2017-01-05T00:36:05'`
+
+| Name, shorthand | Description                                   |
+| --------------- | --------------------------------------------- |
+| --filter , -f   | Filter output based on conditions provided    |
+| --format        | Format the output using the given Go template |
+| --since         | Show all events created since timestamp       |
+| --until         | Stream events until this timestamp            |
+
+3. **Filter events by criteria**
+
+   - The filtering flag (-f or --filter) format is of “key=value”.
+   - If you would like to use multiple filters, pass multiple flags (e.g., --filter "foo=bar" --filter "bif=baz")
+   - The currently supported filters are:
+     - config (config=<name or id>)
+     - container (container=<name or id>)
+     - daemon (daemon=<name or id>)
+     - event (event=<event action>)
+     - image (image=<repository or tag>)
+     - label (label=<key> or label=<key>=<value>)
+     - network (network=<name or id>)
+     - node (node=<id>)
+     - plugin (plugin=<name or id>)
+     - scope (scope=<local or swarm>)
+     - secret (secret=<name or id>)
+     - service (service=<name or id>)
+     - type (type=<container or image or volume or network or daemon or plugin or service or node or secret or config>)
+     - volume (volume=<name>)
+   - `docker events --filter "event=stop"`
+   - `docker events --filter "image=alpine"`
+   - `docker events --filter "container=test"`
+   - `docker events --filter "container=test" --filter "container=d9cdb1525ea8"`
+   - `docker events --filter "container=test" --filter "event=stop"`
+   - `docker events --filter "type=volume"`
+   - `docker events --filter "type=network"`
+   - `docker events --filter "container=container_1" --filter "container=container_2"`
+   - `docker events --filter "type=volume"`
+   - `docker events --filter "type=network"`
+   - `docker events --filter "type=plugin"`
+   - `docker events -f type=service`
+   - `docker events -f type=node`
+   - `docker events -f type=secret`
+   - `docker events -f type=config`
+   - `docker events --filter "scope=swarm"`
+
+4. **FORMAT**
+
+   - If a format `(--format)` is specified, the given template will be executed instead of the default format. Go’s text/template (https://golang.org/pkg/text/template/) package describes all the details of the format.
+
+   - If a format is set to `{{json .}}`, the events are streamed as valid JSON Lines. For information about JSON Lines, please refer to http://jsonlines.org/.
+   - `docker events --filter "type=container" --format "Type={{.Type}} Status={{.Status}} ID={{.ID}}"`
+   - `docker events --format "{{json .}}"`
