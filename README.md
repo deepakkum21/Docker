@@ -670,7 +670,7 @@
 - `docker swarm join-token [manager|worker]` manager will give token to join as manager, worker for joining as worker
 - `docker swarm leave` this cmd to be executed on worker to remove from swarm
 - `docker swarm join`
-- `docker node rm nodeName` this cmd to be executed on manager to remove from swarm
+- `docker node rm nodeName` this cmd to be executed on manager to remove from swarm -`-f` to be removed forcefully
 
 - `docker service create` docker service is similar to docker run
 - `docker service update servicename --replicas count`
