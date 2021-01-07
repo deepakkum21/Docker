@@ -150,7 +150,9 @@
       - You can also `use overlay networks to facilitate communication between a swarm service and a standalone container`, or `between two standalone containers on different Docker daemons`. This strategy removes the need to do OS-level routing between these containers.
       - Overlay networks are `best when you need containers running on different Docker hosts to communicate`, or w`hen multiple applications work together using swarm services`.
    4. **`none`** :-
-      - For this container, disable all networking. Usually used in conjunction with a custom network driver. none is not available for swarm services.
+      - For this container, disable all networking.
+      - if `one want to create a container and want doesnot want to attach with any network then will use none` as if you don't specify any network it will attach to bridge network.
+      - Usually used in conjunction with a custom network driver. none is not available for swarm services.
 
 ## **Things to remember while dockerizing javascript code**:-
 
