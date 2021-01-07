@@ -185,13 +185,17 @@
 3. react-frontend:-
    - `docker run -it -v "F:/gitrepos/Docker/05 Building Multi-Container Applications with Docker/multi-02-finished/frontend/src:/app/src" --rm --name goals-frontend -p 3000:3000 goals:react`
 
-## Docker Registry image:-
+## Docker Local Registry :-
 
 - used for creating ur own private repo.
 - `docker container run -p 5000:5000 -d --name simple_registry registry`
 - can be accessed at `/v2/_catalog`
 - annonymous vol created by registry image conatiner is at `/var/lib/registry`
-- so get the access of the images saved in the registery bind this vol at thsi.
+- so get the access of the images saved in the registery bind this vol at this.
+- by default it used local driver, one can use S3 driver for saving in aws, or other cloud service driver.
+- **for pushing in local registery**:-
+  - `docker image tag imageNameWhichYouWantToTag 127.0.0.1:5000/nameWhichYouWantToGiveToImage:tag`
+  - `docke image push 127.0.0.1:5000/nameWhichYouWantToGiveToImage:tag`
 
 ## **Docker Compose**
 
