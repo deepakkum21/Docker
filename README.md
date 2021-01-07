@@ -48,12 +48,12 @@
 9. `docker attach containerName/id` **(run in attach mode) this mode helps in printing logs**
 10. `docker logs containerName/id` **(to see past logs)**
 11. `docker logs -f containerName/id` **(to see past logs and listen to upcoming logs)**
-12. `docker run -it imageId/imgaeName` **( to run a conatiner in -i ----> interative -t ---->terminal)**
+12. `docker run -it imageId/imgaeName` **( to run a container in -i ----> interative -t ---->terminal)**
 13. `docker image prune` **(to remove all the unused images)**
 14. `docker run -d --rm -p outsideport:internalexposedport imageId/imgaeName` **(it starts in -d dttached mode, -p publish port, --rm for removing the container as soon it is stopped**
 15. `docker image inspect imageId/imgaeName` **( to know more about the image)**
-16. `docker cp sourcefoldername_local/. containerid/name:/destinationfolder_docker` **(copying from local to conatiner)**
-17. `docker cp containerid/name:/sourcefoldername destinationfolder_local` **(copying from local conatiner to local)**
+16. `docker cp sourcefoldername_local/. containerid/name:/destinationfolder_docker` **(copying from local to container)**
+17. `docker cp containerid/name:/sourcefoldername destinationfolder_local` **(copying from local container to local)**
 18. `docker run --rm -p outsideport:internalexposedport --name nameofcontainer imageId/imgaeName`
 19. `docker tag previousname:tag reponame/newimagename:tag` **to rename a image for pushing in dockerhub**
 20. `docker push reponame/imagename:version_or_tag`
@@ -64,9 +64,9 @@
 
 ## Volumes and persistence
 
-1. The data is stored in the thin layer which gets added on top of container i.e it is related to each conatiner.
-2. stopping of a conatiner doesn't destroys data of that particular conatiner.
-3. removal of conatiner removes data of that conatiner if volume concept is not used.
+1. The data is stored in the thin layer which gets added on top of container i.e it is related to each container.
+2. stopping of a container doesn't destroys data of that particular container.
+3. removal of container removes data of that container if volume concept is not used.
    - `docker volume ls`
    - `docker volume create vol_name`
    - `docker volume inspect vol_name` to see the details about a vol
@@ -75,7 +75,7 @@
 
 1. `Anonymous volume` (managed by docker):-
 
-   - **gets destroyed when container gets shutdown. It is attached to a particular conatiner**
+   - **gets destroyed when container gets shutdown. It is attached to a particular container**
    - path is unknown
    - `docker run -d -p 3000:80 --rm --name containerName -v /app/node_modules imageId_or_name`
    - **it is also helpful in avoiding the files which we donot want to be overriden**.
@@ -83,7 +83,7 @@
 
 2. `Named volume`(managed by docker):-
 
-   - **it can be created at the time of running the container. It is not meant to be accessed by normal user. The data survives the container shutdown. It is not attached to a particular conatiner**
+   - **it can be created at the time of running the container. It is not meant to be accessed by normal user. The data survives the container shutdown. It is not attached to a particular container**
    - `docker run -d -p 3000:80 --rm --name containerName -v volumeName:pathOfFolderToBeStored imageId_or_name`
    - path is unknown
    - can be shared across containers
@@ -98,7 +98,7 @@
    - `docker run -d -p 3000:80 --rm --name containerName -v fullPathOnLocalHost:pathOfFolderToBeStored -v /app/node_modules imageId_or_name`
    - **`docker run -d --rm --name feed -p 3000:80 -v "F:/gitrepos/Docker/03 Managing Data & Working with Volumes/data-volumes-06-adjusted-dockerfile:/app" -v /app/node_modules feedback:nodemon`**
    - can be shared across containers
-   - **`:ro`** for read only when we dont want the conatiner should not write accidently in our local file system
+   - **`:ro`** for read only when we dont want the container should not write accidently in our local file system
    - **`:delegated`** used for **not immediately writing back to host machine instead to do in batches to improve performance**.
 
 ## ARGument (build-time)
@@ -129,7 +129,7 @@
    - **using NETWORK**
      - to resolve IP automatically network is created, as inside same Network ip are resolved
      - `docker network create network-name` unlike volume network is not created automatically.
-     - `docker run --network network-name -d -rm --name conatinername imageid_or_name`
+     - `docker run --network network-name -d -rm --name containername imageid_or_name`
 
 3. **Different Docker network drivers**
 
@@ -164,9 +164,9 @@
 ## **Things to remember while dockerizing javascript code**:-
 
 1. **Since javascript code is executed in browser we `cannot use containerName` while calling a api or any communication related to docker thing**.
-2. **Also the `ports of those conatiner has to be published` with whom javascript code is going to communicate**
-3. No need to run in the network created for docker conatiners.
-4. **`While making the conatiner -it option has to be given` for interactive terminal otherwise it wouldn't start**.
+2. **Also the `ports of those container has to be published` with whom javascript code is going to communicate**
+3. No need to run in the network created for docker containers.
+4. **`While making the container -it option has to be given` for interactive terminal otherwise it wouldn't start**.
 
 ## Mongo :-
 
@@ -189,15 +189,15 @@
 
 1.  it is `config file` having `orchestration cmds` (start, stop, build).
 2.  it `does not replace Dockerfile for custom images`.
-3.  `Not suitable for managing multiple conatiners on different host`.
-4.  basically it replaces writing complex cmds for a image or conatiner.
+3.  `Not suitable for managing multiple containers on different host`.
+4.  basically it replaces writing complex cmds for a image or container.
 5.  the `containers run using compose file are automatically removed`.
 6.  `Creates a separate Network and put all the services present in the file` into that network.
 7.  **`Docker-compose up`**
 8.  **`Docker-compose up -d`** to run in detach mode by default it runs it attach mode
-9.  **`Docker-compose down`** makes all conatiners stops but donot delete volumes
+9.  **`Docker-compose down`** makes all containers stops but donot delete volumes
 10. **`Docker-compose down -v`** to delete volumes also
-11. the name given assigned to the conatiner **`foldernameOFDockerComposeFile_servicename_count`** also `serive a=name is memorized and that can be used in code for connection`
+11. the name given assigned to the container **`foldernameOFDockerComposeFile_servicename_count`** also `serive a=name is memorized and that can be used in code for connection`
 12. `docker-compose up --build` **forcing to rebuild the images if something has changed otherwise if the images were present** before it will use the previous image and latest changes might not get picked.
 13. `docker-compose build` will only build custom images and will not make up.
 14. `docker-compose run service-name cmdWhichWantToGiveAfterENTERPOINT/REPLACE?CMD`
@@ -338,7 +338,7 @@
 
 - `docker exec -it container-name commnad-which-want-to-run` `docker exec -it node1 npm init`
   - before that create a container with `-it` option like `docker run -it -d --name node1 node`
-- **exec is used to running commands inside the conatiner from outside**.
+- **exec is used to running commands inside the container from outside**.
 
 1.  **_Creating a node-util_**
 
@@ -366,7 +366,7 @@
 
 3.  **USING DOCKER_COMPOSE**
     - `docker-compose up`
-    - `docker-compose run --rm npm install init` since it doesnot delete once utility conatiner finishes its job
+    - `docker-compose run --rm npm install init` since it doesnot delete once utility container finishes its job
     - `docker-compose run --rm npm install express nodemon`
 
 ## DEPLOYMENT
@@ -397,22 +397,22 @@
 - manage network and security groups/firewalls.
 - SSH into the machine.
 
-## Using ECS (elastic conatiner service);-
+## Using ECS (elastic container service);-
 
 1. **it has four steps**:-
-   - `container definition` :- config like port, conatiner name, network, repo name, mounts, vol etc
+   - `container definition` :- config like port, container name, network, repo name, mounts, vol etc
    - `task definition` :- defining in which was the ECS should launch eg `FARGATE` serverless style launches when it is required
    - `service`:- laod balancer
-   - `cluster` :- creating a virtual network, helpfull in muti conatiner to make them available in one network.
+   - `cluster` :- creating a virtual network, helpfull in muti container to make them available in one network.
 2. **Multicontainer communication in ECS**:-
-   - in normal or in local setup we use conatinername for communicating with one conatiner to other like
-     - connecting to mongo:- `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@conatinerName:27017/course-goals?authSource=admin`,
+   - in normal or in local setup we use containername for communicating with one container to other like
+     - connecting to mongo:- `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@containerName:27017/course-goals?authSource=admin`,
    - but in ECS :-
      - connecting to mongo:- `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@localhost:27017/course-goals?authSource=admin`,
    - best way:-
      - `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_URL}:27017/course-goals?authSource=admin`,
-     - in this way we can can define ENV variable in Dockerfile with deafult value of conatinerName
-     - when deploying to ECS we can give env value that time of conatiner config as localhost
+     - in this way we can can define ENV variable in Dockerfile with deafult value of containerName
+     - when deploying to ECS we can give env value that time of container config as localhost
 
 ## Building a multi stage :-
 
