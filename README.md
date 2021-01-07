@@ -193,10 +193,15 @@
 - annonymous vol created by registry image conatiner is at `/var/lib/registry`
 - so get the access of the images saved in the registery bind this vol at this.
 - by default it used local driver, one can use S3 driver for saving in aws, or other cloud service driver.
+- **use case**:-
+  - this is helpful when we don't have the inetrnet and would not like have alot of downloaded images in the images list.
 - **for pushing in local registery**:-
   - `docker image tag imageNameWhichYouWantToTag 127.0.0.1:5000/nameWhichYouWantToGiveToImage:tag`
   - `docke image push 127.0.0.1:5000/nameWhichYouWantToGiveToImage:tag` can use localhost instead of 127.0.0.1
   - list of local images pushed in the registery can be seen at `localohst:5000/v2/_catalog`
+- **pulling from local registry**
+  - `docker image pull 127.0.0.1/imageName:tag`
+- docker **only allows pulling image from secured https exception** for `(127.0.0.1/8)`
 
 ## **Docker Compose**
 
