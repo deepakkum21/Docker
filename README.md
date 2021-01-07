@@ -2,12 +2,14 @@
 
 ## Diff b/w RUN & CMD
 
-**RUN**:- the command is `executed when the image is created`
-**CMD**:-
+- **RUN**:-
 
-- the command is `executed when container is being created`
-- if some cmd in mention in cmdline then this will override the cmd mentioned in CMD
-- if `no CMD cmd is present in the dockerfile then the base image CMD cmd will execute`
+  - the command is `executed when the image is created`
+
+- **CMD**:-
+  - the command is `executed when container is being created`
+  - if some cmd in mention in cmdline then this will override the cmd mentioned in CMD
+  - if `no CMD cmd is present in the dockerfile then the base image CMD cmd will execute`
 
 **ENTRYPOINT**:-
 
