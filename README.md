@@ -141,6 +141,7 @@
       - User-defined bridge networks are `best when you need multiple containers to communicate on the same Docker host`.
    2. **`host`**:-
       - For standalone containers, remove network isolation between the container and the Docker host, and use the host’s networking directly.
+      - All the process will be isolated but the network will not be isolated as it will use host network.
       - Host networks are `best when the network stack should not be isolated from the Docker host`, but you want other aspects of the container to be isolated.
       - use case:- `when you don't want to do port mapping and want to use host network`.
    3. **`overlay`**:-
