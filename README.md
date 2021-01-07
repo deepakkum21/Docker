@@ -17,11 +17,14 @@
 
 ## Diff b/w ENTRYPOINT & CMD
 
-**ENTRYPOINT**:- the command is `appended to the cmd mentioned in ENTRYPOINT`
-**CMD**:-
+- **ENTRYPOINT**:-
 
-- the command is `executed when container is being created`
-- if some cmd in mention in cmdline then this will override the cmd mentioned in CMD
+  - the command is `appended to the cmd mentioned in ENTRYPOINT`
+
+- **CMD**:-
+
+  - the command is `executed when container is being created`
+  - if some cmd in mention in cmdline then this will override the cmd mentioned in CMD
 
 ## Info about layer
 
