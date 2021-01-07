@@ -210,6 +210,7 @@
 
   - `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout private.key -out certificate.crt` create a new certificate
   - place these two certs in `/etc/docker/` under a folder `certs.d/repo.docker.local:5000/ca.crt`
+  - repo.docker.local has to be added in `/etc/hosts/` so that this should be resloved.
   - restart the docker.
   - now run the registry container with following cmd
   - `docker container run -d -p 5000:5000 --name secure_registry -v $(pwd)/certs/:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=certs/domain.key registry`
@@ -244,6 +245,36 @@
                      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
                   volumes:
                   - ./data:/data
+
+- **basic authentication for registry**
+
+  - start by `installing the htpasswd` package
+    - `sudo apt install apache2-utils`
+  - we will create a folder that will hold our password files.
+    - `mkdir auth`
+  - we will continue by creating a user using the following command
+    - `htpasswd -Bc registry.password testuser`
+    - The last parameter is the name of the user in this case testUser. After executing the command, you will be prompted to enter your password
+  - docker-compose file:
+
+           version: '3'
+           services:
+              registry:
+                 image: registry:2
+              ports:
+              - "5000:5000"
+              environment:
+                 REGISTRY_AUTH: htpasswd
+                 REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+                 REGISTRY_AUTH_HTPASSWD_PATH: /auth/registry.password
+              volumes:
+                 - ./auth:/auth
+
+  - For `REGISTRY_AUTH you have to provide the authentification scheme` you are using.
+  - `REGISTRY_AUTH_HTPASSWD_PATH is the path of the authentification file` we just created above.
+  - restart
+    - `docker-compose up --force-recreate`
+  - `docker login localhost:5000`
 
 ## **Docker Compose**
 
