@@ -185,6 +185,14 @@
 3. react-frontend:-
    - `docker run -it -v "F:/gitrepos/Docker/05 Building Multi-Container Applications with Docker/multi-02-finished/frontend/src:/app/src" --rm --name goals-frontend -p 3000:3000 goals:react`
 
+## Docker Registry image:-
+
+- used for creating ur own private repo.
+- `docker container run -p 5000:5000 -d --name simple_registry registry`
+- can be accessed at `/v2/_catalog`
+- annonymous vol created by registry image conatiner is at `/var/lib/registry`
+- so get the access of the images saved in the registery bind this vol at thsi.
+
 ## **Docker Compose**
 
 1.  it is `config file` having `orchestration cmds` (start, stop, build).
