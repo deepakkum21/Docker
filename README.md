@@ -159,7 +159,7 @@
    - `docker network connect netorkName containerID_Name`
    - `docker network disconnect netorkName containerID_Name`
    - **Note**
-     - one cannot connect a container
+     - one **`cannot connect a container connected to none or host to another network`**.
 
 ## **Things to remember while dockerizing javascript code**:-
 
