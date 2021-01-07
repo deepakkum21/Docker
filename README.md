@@ -143,6 +143,7 @@
       - For standalone containers, remove network isolation between the container and the Docker host, and use the host’s networking directly.
       - All the process will be isolated but the network will not be isolated as it will use host network.
       - Host networks are `best when the network stack should not be isolated from the Docker host`, but you want other aspects of the container to be isolated.
+      - `At a time one network with host driver can be created`, if want to create a new network with host driver first have to delete the default one.
       - use case:- `when you don't want to do port mapping and want to use host network`.
    3. **`overlay`**:-
       - Overlay networks `connect multiple Docker daemons together` and `enable swarm services to communicate with each other`.
