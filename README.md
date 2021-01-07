@@ -195,7 +195,8 @@
 - by default it used local driver, one can use S3 driver for saving in aws, or other cloud service driver.
 - **for pushing in local registery**:-
   - `docker image tag imageNameWhichYouWantToTag 127.0.0.1:5000/nameWhichYouWantToGiveToImage:tag`
-  - `docke image push 127.0.0.1:5000/nameWhichYouWantToGiveToImage:tag`
+  - `docke image push 127.0.0.1:5000/nameWhichYouWantToGiveToImage:tag` can use localhost instead of 127.0.0.1
+  - list of local images pushed in the registery can be seen at `localohst:5000/v2/_catalog`
 
 ## **Docker Compose**
 
