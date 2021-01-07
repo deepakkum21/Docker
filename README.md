@@ -132,6 +132,7 @@
      - `docker run --network network-name -d -rm --name conatinername imageid_or_name`
 
 3. **Different Docker network drivers**
+
    1. **`bridge`**:
       - The `default network driver`.
       - If you don’t specify a driver, this is the type of network you are creating.
@@ -153,6 +154,12 @@
       - For this container, disable all networking.
       - if `one want to create a container and want doesnot want to attach with any network then will use none` as if you don't specify any network it will attach to bridge network.
       - Usually used in conjunction with a custom network driver. none is not available for swarm services.
+
+4. **Connecting/Disconnecting container to network on fly**
+   - `docker network connect netorkName containerID_Name`
+   - `docker network disconnect netorkName containerID_Name`
+   - **Note**
+     - one cannot connect a container
 
 ## **Things to remember while dockerizing javascript code**:-
 
