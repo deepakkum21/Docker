@@ -185,7 +185,7 @@
 3. react-frontend:-
    - `docker run -it -v "F:/gitrepos/Docker/05 Building Multi-Container Applications with Docker/multi-02-finished/frontend/src:/app/src" --rm --name goals-frontend -p 3000:3000 goals:react`
 
-## Docker Local Registry :-
+## Docker Local Registry (https://docs.docker.com/registry/deploying/):-
 
 - used for creating ur own private repo.
 - `docker container run -p 5000:5000 -d --name simple_registry registry`
@@ -202,6 +202,48 @@
 - **pulling from local registry**
   - `docker image pull 127.0.0.1/imageName:tag`
 - docker **only allows pulling image from secured https exception** for `(127.0.0.1/8)`
+- **making a insecure ip to be allowed**
+  - `create a demon.json file` with following entries
+    - `{ "insecure-registries" : ["ipwhichYouWantToAdd"] }`
+  - put this file in `/etc/docker/`
+- **making a secure ip using cert (https://gabrieltanner.org/blog/docker-registry)**
+
+  - `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout private.key -out certificate.crt` create a new certificate
+  - place these two certs in `/etc/docker/` under a folder `certs.d/repo.docker.local:5000/ca.crt`
+  - restart the docker.
+  - now run the registry container with following cmd
+  - `docker container run -d -p 5000:5000 --name secure_registry -v $(pwd)/certs/:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=certs/domain.key registry`
+  - compose.yml
+
+            version: '3'
+            services:
+               registry:
+                  image: registry:2
+                  ports:
+                  - "443:443"
+                  environment:
+                     # if want to change the default port from 5000 to 443
+                     REGISTRY_HTTP_ADDR=0.0.0.0:443
+                     REGISTRY_HTTP_TLS_CERTIFICATE=certs/domain.crt
+                     REGISTRY_HTTP_TLS_KEY=certs/domain.key
+                  volumes
+                  - ./certs:/certs
+
+- **Customize Storage**
+
+  - The docker registry `also lets you customize the location where the data of the registry is saved`. For that, you just have to `add an extra environment variable that defines` the path the data should be saved to.
+  - compose.yml
+
+            version: '3'
+            services:
+               registry:
+                  image: registry:2
+                  ports:
+                  - "443:443"
+                  environment:
+                     REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+                  volumes:
+                  - ./data:/data
 
 ## **Docker Compose**
 
