@@ -131,6 +131,24 @@
      - `docker network create network-name` unlike volume network is not created automatically.
      - `docker run --network network-name -d -rm --name conatinername imageid_or_name`
 
+3. **Different Docker network drivers**
+   1. **`bridge`**:
+      - The `default network driver`.
+      - If you don’t specify a driver, this is the type of network you are creating.
+      - Bridge networks are usually used when your applications run in standalone containers that need to communicate.
+      - the `default bridge network doesnot have DNS`.
+      - but the `user created bridge network has DNS`.
+      - User-defined bridge networks are `best when you need multiple containers to communicate on the same Docker host`.
+   2. **`host`**:-
+      - For standalone containers, remove network isolation between the container and the Docker host, and use the host’s networking directly.
+      - Host networks are `best when the network stack should not be isolated from the Docker host`, but you want other aspects of the container to be isolated.
+   3. **`overlay`**:-
+      - Overlay networks `connect multiple Docker daemons together` and `enable swarm services to communicate with each other`.
+      - You can also `use overlay networks to facilitate communication between a swarm service and a standalone container`, or `between two standalone containers on different Docker daemons`. This strategy removes the need to do OS-level routing between these containers.
+      - Overlay networks are `best when you need containers running on different Docker hosts to communicate`, or w`hen multiple applications work together using swarm services`.
+   4. **`none`** :-
+      - For this container, disable all networking. Usually used in conjunction with a custom network driver. none is not available for swarm services.
+
 ## **Things to remember while dockerizing javascript code**:-
 
 1. **Since javascript code is executed in browser we `cannot use containerName` while calling a api or any communication related to docker thing**.
