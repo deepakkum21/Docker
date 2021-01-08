@@ -1,6 +1,6 @@
 # KUBERNETES
 
-## 1.Nodes:-
+## Nodes:-
 
 - A node is a `machine – physical or virtual – on which kubernetes is installed`.
 - A node is a worker machine and this is `were containers will be launched` by kubernetes
@@ -32,6 +32,7 @@
 
    - The container runtime is the underlying `software that is used to run containers`.
    - In this case it `happens to be Docker`.
+   - `other runtime are Rocket or CRIO`.
 
 5. **Controllers**
 
@@ -40,5 +41,19 @@
    - The controllers `makes decisions to bring up new containers in such cases`
 
 6. **kubelet**
+
    - kubelet is the `agent that runs on each node in the cluster`.
    - The agent is `responsible for making sure that the containers are running on the nodes as expected`
+
+## Master vs Worker Nodes
+
+1. Master node have
+
+   - API Server
+   - Controllers
+   - Schedulers
+   - ETCD
+
+2. Worker node have
+   - kubelet
+   - container runtine
