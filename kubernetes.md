@@ -63,3 +63,9 @@
 1.  `kubectl run ` kubectl run command is used to deploy an application on the cluster.
 2.  `kubectl culster-info` used to view information about the cluster
 3.  `kubectl get pods` list all the nodes part of the cluster
+
+## minikube VS kubeadmin
+
+- **minikube** `utility you could only setup a single node kubernetes cluster`.
+- **kubeadmin** tool h`elps us setup a multi node cluster with master and workers on separate machines`.
+-
