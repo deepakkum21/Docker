@@ -57,3 +57,9 @@
 2. Worker node have
    - kubelet
    - container runtine
+
+## kubectl cmds:-
+
+1.  `kubectl run ` kubectl run command is used to deploy an application on the cluster.
+2.  `kubectl culster-info` used to view information about the cluster
+3.  `kubectl get pods` list all the nodes part of the cluster
