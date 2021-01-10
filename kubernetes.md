@@ -67,7 +67,7 @@
 ## minikube VS kubeadmin
 
 - **minikube** `utility you could only setup a single node kubernetes cluster`.
-- **kubeadmin** tool h`elps us setup a multi node cluster with master and workers on separate machines`.
+- **kubeadmin** `tool helps us setup a multi node cluster with master and workers on separate machines`.
 
 ## Steps to install kubeadmin (https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
 
