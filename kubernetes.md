@@ -94,6 +94,10 @@
                        address 192.168.56.2(witin the range of the adapter)
                        netmask 255.255.255.0
 
+    4.  **disable swap**
+        - execute `swapoff -a`
+        - go to `/etc/fstab` and `comment of swap line`.
+
 4.  The next step is to `initialize the Master server`. During this process all the` required components are installed` and configured on the master server. That way we can start the cluster level configurations from the master server.
 
 5.  Once the master is initialized and before joining the worker nodes to the master, we must ensure that the network pre-requisites are met. A normal network connectivity between the systems is not SUFFICIENT for this. Kubernetes requires a `special network between the master and worker nodes which is called as a` **`POD network`**.
