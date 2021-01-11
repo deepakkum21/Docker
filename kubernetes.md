@@ -102,4 +102,4 @@
 
 5.  Once the master is initialized and before joining the worker nodes to the master, we must ensure that the network pre-requisites are met. A normal network connectivity between the systems is not SUFFICIENT for this. Kubernetes requires a `special network between the master and worker nodes which is called as a` **`POD network`**.
 
-6.  last step is to join the worker nodes to the master node.
+6.  Last step is to join the worker nodes to the master node.
