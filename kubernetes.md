@@ -66,8 +66,10 @@
 
 ## minikube VS kubeadmin
 
-- **minikube** `utility you could only setup a single node kubernetes cluster`.
-- **kubeadmin** `tool helps us setup a multi node cluster with master and workers on separate machines`.
+- **minikube**: `utility you could only setup a single node kubernetes cluster`.
+- **kubeadmin**: `tool helps us setup a multi node cluster with master and workers on separate machines`.
+- **kubelet**: the `component that runs on all of the machines in your cluster and does things like starting pods and containers`.
+- **kubectl**: the `command line util to talk to your cluster`.
 
 ## Steps to install kubeadmin (https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
 
@@ -98,7 +100,7 @@
         - execute `swapoff -a`
         - go to `/etc/fstab` and `comment of swap line`.
 
-4.  The next step is to `initialize the Master server`. During this process all the` required components are installed` and configured on the master server. That way we can start the cluster level configurations from the master server.
+4.  The next step is to `initialize the Master server`. During this process all the` required components are installed` and configured on the master server. That way we can start the cluster level configurations from the master server. (https://kubernetes.io/docs/setup/production-environment/container-runtimes/)
 
     1.  run `sudo apt-get update` in all worker-node and master node.
     2.  ### Set up the repository
@@ -112,9 +114,25 @@
         - `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key --keyring /etc/apt/trusted.gpg.d/docker.gpg add -`
 
     4.  ### Add Docker apt repository.
+
         - `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
         - run `sudo apt-get update` in all
 
-5.  Once the master is initialized and before joining the worker nodes to the master, we must ensure that the network pre-requisites are met. A normal network connectivity between the systems is not SUFFICIENT for this. Kubernetes requires a `special network between the master and worker nodes which is called as a` **`POD network`**.
+    5.  ### Install Docker CE
+        - `sudo apt-get update && sudo apt-get install -y containerd.io=1.2.13-2 docker-ce=5:19.03.11~3-0~ubuntu-$(lsb_release -cs) docker-ce-cli=5:19.03.11~3-0~ubuntu-$(lsb_release -cs)`
 
-6.  Last step is to join the worker nodes to the master node.
+5.  ## Installing kubeadm, kubelet and kubectl
+
+    1. You will install these packages on all of your machines:
+
+       - **`kubeadm`**: the `command to bootstrap the cluster`.
+
+       - **`kubelet`**: the `component that runs on all of the machines in your cluster and does things like starting pods and containers`.
+
+       - **`kubectl`**: the `command line util to talk to your cluster`.
+
+    2.
+
+6.  Once the master is initialized and before joining the worker nodes to the master, we must ensure that the network pre-requisites are met. A normal network connectivity between the systems is not SUFFICIENT for this. Kubernetes requires a `special network between the master and worker nodes which is called as a` **`POD network`**.
+
+7.  Last step is to join the worker nodes to the master node.
