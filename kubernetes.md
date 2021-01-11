@@ -100,6 +100,21 @@
 
 4.  The next step is to `initialize the Master server`. During this process all the` required components are installed` and configured on the master server. That way we can start the cluster level configurations from the master server.
 
+    1.  run `sudo apt-get update` in all worker-node and master node.
+    2.  ### Set up the repository
+
+        - Install packages to allow apt to use a repository over HTTPS
+
+        - `sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common`
+
+    3.  ### Add Docker's official GPG key
+
+        - `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key --keyring /etc/apt/trusted.gpg.d/docker.gpg add -`
+
+    4.  ### Add Docker apt repository.
+        - `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+        - run `sudo apt-get update` in all
+
 5.  Once the master is initialized and before joining the worker nodes to the master, we must ensure that the network pre-requisites are met. A normal network connectivity between the systems is not SUFFICIENT for this. Kubernetes requires a `special network between the master and worker nodes which is called as a` **`POD network`**.
 
 6.  Last step is to join the worker nodes to the master node.
