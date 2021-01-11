@@ -64,7 +64,7 @@
 2.  `kubectl culster-info` used to view information about the cluster
 3.  `kubectl get pods` list all the nodes part of the cluster
 
-## minikube VS kubeadmin
+## minikube VS kubeadmin VS kubelet VS kubectl
 
 - **minikube**: `utility you could only setup a single node kubernetes cluster`.
 - **kubeadmin**: `tool helps us setup a multi node cluster with master and workers on separate machines`.
@@ -123,15 +123,30 @@
 
 5.  ## Installing kubeadm, kubelet and kubectl
 
-    1. You will install these packages on all of your machines:
+    1.  You will install these packages on all of your machines:
 
-       - **`kubeadm`**: the `command to bootstrap the cluster`.
+        - **`kubeadm`**: the `command to bootstrap the cluster`.
 
-       - **`kubelet`**: the `component that runs on all of the machines in your cluster and does things like starting pods and containers`.
+        - **`kubelet`**: the `component that runs on all of the machines in your cluster and does things like starting pods and containers`.
 
-       - **`kubectl`**: the `command line util to talk to your cluster`.
+        - **`kubectl`**: the `command line util to talk to your cluster`.
 
-    2.
+    2.  run `sudo apt-get update && sudo apt-get install -y apt-transport-https curl` in all nodes
+    3.  run `curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -` in all nodes
+    4.  write following lines:-
+
+                  cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+                  deb https://apt.kubernetes.io/ kubernetes-xenial main
+                  EOF
+
+    5.  run `sudo apt-get update` in all nodes.
+    6.  run `sudo apt-get install -y kubelet kubeadm kubectl` in all nodes to install kebelet, kubeadm, kubectl
+
+    7.  After this before initializing the cluster one has to `create a pod-network` You must deploy a `Container Network Interface (CNI) based Pod network add-on so that your Pods can communicate with each other`.
+
+        - Take care that your **Pod network must not overlap with any of the host networks**: you are likely to see problems if there is any overlap. (If you find a collision between your network plugin's preferred Pod network and some of your host networks, you should think of a suitable CIDR block to use instead, then use that during `kubeadm init` with `--pod-network-cidr` and as a replacement in your network plugin's YAML).
+
+    8.  `kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=<static-ip-address-mkubemaster>` has to be run in master node
 
 6.  Once the master is initialized and before joining the worker nodes to the master, we must ensure that the network pre-requisites are met. A normal network connectivity between the systems is not SUFFICIENT for this. Kubernetes requires a `special network between the master and worker nodes which is called as a` **`POD network`**.
 
