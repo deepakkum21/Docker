@@ -191,5 +191,6 @@
 
 ## Multi-container POD:-
 
-1. But sometimes you might have a scenario were you have a helper container, that might be doing some kind of supporting task for our web application such as processing a user entered data, processing a file uploaded by the user etc. and you want these helper containers to live along side your application container.
-2. In that case, you CAN have both of these containers part of the same POD, so that when a new application container is created, the helper is also created and when it dies the helper also dies since they are part of the same POD. The two containers can also communicate with each other directly by referring to each other as localhost’ since they share the same network namespace. Plus they can easily share the same storage space as well.
+1. But sometimes you might have a scenario were you have a helper container, that might be doing `some kind of supporting task for our web application` such as processing a user entered data, processing a file uploaded by the user etc. and you want these helper containers to live along side your application container.
+2. In that case, you `CAN have both of these containers part of the same POD, so that when a new application container is created, the helper is also created and when it dies the helper also dies since they are part of the same POD`.
+3. The two containers can `also communicate with each other directly by referring to each other as localhost’ since they share the same network namespace`. Plus they can easily share the same storage space as well.
