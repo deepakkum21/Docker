@@ -77,7 +77,7 @@
 
 2.  The next step is to `install a container runtime` on the hosts. We will be using Docker, so we must install Docker on all the nodes.
 
-3.  The next step is to i`nstall kubeadmin tool on all the nodes`. The kubeadmin tool helps us bootstrap the kubernetes solution by installing and configuring all the required components in the right nodes.
+3.  The next step is to `install kubeadmin tool on all the nodes`. The kubeadmin tool helps us bootstrap the kubernetes solution by installing and configuring all the required components in the right nodes.
 
     1.  **Have unique HOSTNAME for each node and master**
 
@@ -146,7 +146,7 @@
 
         - Take care that your **Pod network must not overlap with any of the host networks**: you are likely to see problems if there is any overlap. (If you find a collision between your network plugin's preferred Pod network and some of your host networks, you should think of a suitable CIDR block to use instead, then use that during `kubeadm init` with `--pod-network-cidr` and as a replacement in your network plugin's YAML).
 
-    8.  `kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=<static-ip-address-mkubemaster>` has to be run in master node
+    8.  `kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=<static-ip-address-mkubemaster> --ignore-preflight-errors=all` has to be run in master node
 
 6.  Once the master is initialized and before joining the worker nodes to the master, we must ensure that the network pre-requisites are met. A normal network connectivity between the systems is not SUFFICIENT for this. Kubernetes requires a `special network between the master and worker nodes which is called as a` **`POD network`**.
 
