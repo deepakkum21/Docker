@@ -881,7 +881,7 @@
 
 - `docker service create --mode=global imageName` the mode global creates a instance in every node.
 - `if the node increases in future the service with mode global will automatically` will be created.
-- this use case is `helpful when one want a particular service to be running in evry node created like antivirus, health monitoring` service.
+- this use case is `helpful when one want a particular service to be running in every node created like antivirus, health monitoring` service.
 
 ## CONSTAINT node.role
 
