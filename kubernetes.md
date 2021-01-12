@@ -184,8 +184,12 @@
 
 1. A POD is a `single instance of an application`.
 2. A POD is the `smallest object, that you can create in kubernetes`.
-3. Kubernetes does **not deploy containers directly on the worker nodes**. `The containers are encapsulated into a Kubernetes object`
-   known as PODs.
+3. Kubernetes does **not deploy containers directly on the worker nodes**. `The containers are encapsulated into a Kubernetes object` known as PODs.
 4. PODs usually have a `one-to-one relationship with containers running your application`.
 5. To **scale UP you create new PODs** and** to scale down you delete PODs**.
 6. You `do not add additional containers to an existing POD to scale` your application.
+
+## Multi-container POD:-
+
+1. But sometimes you might have a scenario were you have a helper container, that might be doing some kind of supporting task for our web application such as processing a user entered data, processing a file uploaded by the user etc. and you want these helper containers to live along side your application container.
+2. In that case, you CAN have both of these containers part of the same POD, so that when a new application container is created, the helper is also created and when it dies the helper also dies since they are part of the same POD. The two containers can also communicate with each other directly by referring to each other as localhost’ since they share the same network namespace. Plus they can easily share the same storage space as well.
