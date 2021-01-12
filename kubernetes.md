@@ -160,6 +160,22 @@
 
         ```
 
+    10. If you want to be able to run kubectl commands as non-root user, then as a non-root user perform these
+
+        ```
+            mkdir -p $HOME/.kube
+            sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+            sudo chown $(id -u):$(id -g) $HOME/.kube/config
+        ```
+
+    11. **to get the token to join the cluster**
+
+        ```
+            kubeadm token create --print-join-command
+        ```
+
+    12. **run the cmd printed from the above cmd in the worker with `--ignore-preflight-errors=all` option**
+
 6.  Once the master is initialized and before joining the worker nodes to the master, we must ensure that the network pre-requisites are met. A normal network connectivity between the systems is not SUFFICIENT for this. Kubernetes requires a `special network between the master and worker nodes which is called as a` **`POD network`**.
 
 7.  Last step is to join the worker nodes to the master node.
