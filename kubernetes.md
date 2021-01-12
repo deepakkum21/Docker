@@ -179,3 +179,13 @@
 6.  Once the master is initialized and before joining the worker nodes to the master, we must ensure that the network pre-requisites are met. A normal network connectivity between the systems is not SUFFICIENT for this. Kubernetes requires a `special network between the master and worker nodes which is called as a` **`POD network`**.
 
 7.  Last step is to join the worker nodes to the master node.
+
+# POD:-
+
+1. A POD is a `single instance of an application`.
+2. A POD is the `smallest object, that you can create in kubernetes`.
+3. Kubernetes does **not deploy containers directly on the worker nodes**. `The containers are encapsulated into a Kubernetes object`
+   known as PODs.
+4. PODs usually have a `one-to-one relationship with containers running your application`.
+5. To **scale UP you create new PODs** and** to scale down you delete PODs**.
+6. You `do not add additional containers to an existing POD to scale` your application.
