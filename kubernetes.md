@@ -148,6 +148,18 @@
 
     8.  `kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=<static-ip-address-mkubemaster> --ignore-preflight-errors=all` has to be run in master node
 
+    9.  use any network like `CALICO` or `flannel`:-
+
+        ```
+          kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+
+                            or
+
+          kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+
+        ```
+
 6.  Once the master is initialized and before joining the worker nodes to the master, we must ensure that the network pre-requisites are met. A normal network connectivity between the systems is not SUFFICIENT for this. Kubernetes requires a `special network between the master and worker nodes which is called as a` **`POD network`**.
 
 7.  Last step is to join the worker nodes to the master node.
