@@ -89,7 +89,7 @@ Update the below command with the ip address of kmaster
 kubeadm init --apiserver-advertise-address=<kube-master-ip> --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all
 ```
 
-##### Deploy Calico network
+##### Deploy Calico network (overlay network)
 
 ```
 kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml

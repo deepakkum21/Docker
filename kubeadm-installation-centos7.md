@@ -90,7 +90,7 @@ systemctl enable --now kubelet
 kubeadm init --apiserver-advertise-address=172.16.16.100 --pod-network-cidr=192.168.0.0/16
 ```
 
-##### Deploy Calico network
+##### Deploy Calico network (overlay network)
 
 ```
 kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
