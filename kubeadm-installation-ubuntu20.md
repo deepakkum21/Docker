@@ -130,5 +130,3 @@ kubectl get nodes
 ```
 kubectl get cs
 ```
-
-Have Fun!!
