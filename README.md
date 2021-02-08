@@ -43,11 +43,11 @@
 ## Docker imp cmds:-
 
 1. `docker build dockerFilePath`
-2. `docker run -p outsideport:internalexposedport imageId/imgaeName` **(it starts in attached mode**
+2. `docker run -p outsideport:internalexposedport imageId/imageName` **(it starts in attached mode**
 3. `docker stop containerName/id`
 4. `docker ps` or `docker container ls/ps`
 5. `docker ps -a` or `docker container ls/ps -a`
-6. `docker rmi imageId/imgaeName` (-removeimage) **(before stopping a image container's realted to the image has to removed )**
+6. `docker rmi imageId/imageName` (-removeimage) **(before stopping a image container's realted to the image has to removed )**
 7. `docker rm containerName/id` **(before stopping a running container it has to stopped)**
 8. `docker start stoppedcontainerName/id (to start stopped container)` **(it starts in dettached mode**
 9. `docker attach containerName/id` **(run in attach mode) this mode helps in printing logs**
